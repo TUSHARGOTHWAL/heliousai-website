@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helious Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            padding: 60px 20px;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #00d9ff;
+            color: #00d9ff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            color: #aaa;
+            font-size: 1rem;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .platform-container {
+            background: #1a1a1a;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 600px;
+            background: #0a0a0a;
+            border: 2px dashed #333;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .layer-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .layer-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .layer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: #0f0f0f;
+            border: 2px solid;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+        }
+
+        .cyan-border { border-color: #00d9ff; }
+        .green-border { border-color: #00ff88; }
+        .lime-border { border-color: #88ff00; }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+        }
+
+        .feature-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .feature-description {
+            color: #aaa;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .side-panel {
+            background: #0f0f0f;
+            border: 2px solid #88ff00;
+            border-radius: 12px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-self: start;
+        }
+
+        .side-panel-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        .side-panel-item {
+            color: #ccc;
+            font-size: 0.95rem;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .side-panel-item:last-child {
+            border-bottom: none;
+        }
+
+        .bottom-section {
+            margin-top: 20px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+        }
+
+        .bottom-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .bottom-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .bottom-card {
+            background: transparent;
+            border: none;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .bottom-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            flex-shrink: 0;
+        }
+
+        .bottom-content {
+            flex: 1;
+        }
+
+        .bottom-card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .bottom-card-description {
+            color: #aaa;
+            font-size: 0.85rem;
+            line-height: 1.5;
+        }
+
+        .underline {
+            width: 100%;
+            height: 3px;
+            margin-top: 15px;
+        }
+
+        .cyan-line { background: linear-gradient(90deg, #00d9ff, transparent); }
+        .teal-line { background: linear-gradient(90deg, #00ffcc, transparent); }
+        .green-line { background: linear-gradient(90deg, #00ff88, transparent); }
+
+        /* Icons using CSS */
+        .icon-drone::before {
+            content: "🚁";
+        }
+
+        .icon-search::before {
+            content: "🔍";
+            color: #00ff88;
+        }
+
+        .icon-bell::before {
+            content: "🔔";
+            color: #00d9ff;
+        }
+
+        .icon-globe::before {
+            content: "🌐";
+            color: #00d9ff;
+        }
+
+        .icon-scan::before {
+            content: "📡";
+            color: #00ff88;
+        }
+
+        .icon-target::before {
+            content: "🎯";
+            color: #88ff00;
+        }
+
+        .icon-chip::before {
+            content: "💾";
+            color: #00d9ff;
+        }
+
+        .icon-drone2::before {
+            content: "✈️";
+            color: #00d9ff;
+        }
+
+        .icon-tablet::before {
+            content: "📱";
+            color: #00d9ff;
+        }
+
+        .icon-spiral::before {
+            content: "🌀";
+            color: #00d9ff;
+        }
+
+        .icon-shield::before {
+            content: "🛡️";
+            color: #00ffcc;
+        }
+
+        .icon-brain::before {
+            content: "🧠";
+            color: #00ff88;
+        }
+
+        @media (max-width: 1200px) {
+            .platform-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .layer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .layer-grid,
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="badge">Helious™ Platform</div>
+            <h1>The World's First Integrated<br>Defense AI Imaging Platform</h1>
+            <p class="subtitle">
+                Aggregate multi-perspective aerial imaging, real-time airborne optical sectioning (AOS), and powerful AI object classification in one deployable solution.
+            </p>
+            <p class="subtitle">
+                Unlock tactical clarity and life-saving detection with Helious™. Seamlessly integrates with drones, helicopters, and ground platforms. Delivers real-time, multi-layer signal reconstruction to see through foliage, camouflage, and complex terrain. Strengthen and elevate your defense intelligence infrastructure like never before with Helious™
+            </p>
+        </div>
+
+        <div class="platform-container">
+            <div class="image-placeholder">
+                <img src="Design_a_sleek_202511120530 (1).jpeg" alt="Helious Platform Image" style="max-width:100%; max-height:100%;">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

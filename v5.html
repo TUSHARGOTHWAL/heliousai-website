@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HeliousAI - Defense AI Innovation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* ===== NAVIGATION ===== */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 2.5rem;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-links a:hover {
+            color: #ff9500;
+        }
+
+        .nav-demo {
+            background: #ff9500;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 1.8rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+        }
+
+        .nav-demo:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.5);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.6) 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            color: #fff;
+            max-width: 900px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            letter-spacing: -1px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h1 .highlight {
+            color: #ff9500;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.6;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: #ff9500;
+            color: #fff;
+            border: none;
+            padding: 1rem 2.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: #ff8c00;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(255, 149, 0, 0.6);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            padding: 0.85rem 2.3rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            border-color: #ff9500;
+            background: rgba(255, 149, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        /* ===== QUANTUM THREAT SECTION ===== */
+        .quantum-section {
+            width: 100%;
+            padding: 100px 40px;
+            background: #f8f8f8;
+        }
+
+        .quantum-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .quantum-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .quantum-header h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: #000;
+            line-height: 1.3;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .quantum-header p {
+            font-size: 1.1rem;
+            color: #333;
+            line-height: 1.7;
+            max-width: 900px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        .quantum-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .quantum-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .quantum-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 32px;
+        }
+
+        .card-quote {
+            font-size: 1.05rem;
+            color: #1a1a1a;
+            line-height: 1.7;
+            margin-bottom: 24px;
+            font-weight: 400;
+        }
+
+        .card-source {
+            font-size: 0.95rem;
+            color: #000;
+            font-weight: 600;
+        }
+
+        .card-source a {
+            color: #000;
+            text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .card-source a:hover {
+            color: #ff9500;
+        }
+
+        /* ===== DATA SECTION ===== */
+        .data-section {
+            width: 100%;
+            padding: 6rem 2rem;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .section-wrapper {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .data-visual img {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .data-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+        }
+
+        .data-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1rem;
+        }
+
+        .data-bullets {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .data-bullets li {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+            color: #4a4a4a;
+            font-size: 1rem;
+        }
+
+        .data-bullets li::before {
+            content: '✓';
+            color: #ff9500;
+            font-weight: bold;
+        }
+
+        .learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #ff9500;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
+        .learn-more::after {
+            content: '→';
+        }
+
+        .learn-more:hover {
+            color: #ff8c00;
+        }
+
+        /* ===== FOCUS SECTION ===== */
+        .focus-section {
+            width: 100%;
+            padding: 6rem 2rem;
+            background: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .focus-wrapper {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .focus-content h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 2.5rem;
+            color: #1a1a1a;
+        }
+
+        .focus-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .focus-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        .focus-features li::before {
+            content: '✓';
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ffffff;
+            border: 2px solid #1a1a1a;
+            border-radius: 50%;
+            font-weight: 700;
+            color: #1a1a1a;
+            flex-shrink: 0;
+        }
+
+        .focus-visual video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ===== PLATFORM SECTION ===== */
+        .platform-section {
+            background: #000;
+            color: #fff;
+            padding: 80px 40px;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .platform-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            border: 1px solid #ff4444;
+            color: #ff4444;
+            padding: 6px 14px;
+            border-radius: 16px;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .platform-header h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .subtitle {
+            color: #999;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            max-width: 650px;
+            margin: 0 auto 15px;
+        }
+
+        .platform-container {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            box-shadow: none;
+            border: none;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image-placeholder img {
+            max-width: 90%;
+            height: auto;
+            border-radius: 0;
+            display: block;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .quantum-header h2 {
+                font-size: 2rem;
+            }
+
+            .quantum-cards {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .section-wrapper,
+            .focus-wrapper {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .data-content h2,
+            .focus-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .platform-header h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-logo">HELIOUS AI</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#technology">Technology</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="nav-demo">Get in Touch</button>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="bg1.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>See Through The <span class="highlight">Noise</span><br>Real-Time AI Defense Clarity</h1>
+            <p>Field-validated, canopy-penetrating AI for tactical advantage in complex terrain</p>
+            <div class="hero-buttons">
+                <button class="btn-primary">See Live Demo</button>
+                <button class="btn-secondary">Contact Us</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- QUANTUM THREAT SECTION -->
+    <section class="quantum-section">
+        <div class="quantum-container">
+            <div class="quantum-header">
+                <h7> WHY NOW </h7>
+                <h2>Why Next-Generation AI Imaging Is Critical for Modern Defense Missions</h2>
+                <p>Increasingly, threats on the battlefield are concealed—hidden by dense terrain, camouflage, and unpredictable conditions. Conventional surveillance and imaging tools often fail to uncover dangers, leaving troops and assets exposed. There is a vital need for advanced airborne optical sectioning and real-time AI detection to reveal, classify, and respond to threats before they escalate—saving lives and ensuring mission success.</p>
+            </div>
+
+            <div class="quantum-cards">
+                <!-- Card 1 -->
+                <div class="quantum-card">
+                    <div class="card-image">
+                        <img src="1b.jpeg" alt="White House">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-quote">"Global military reports indicate a 67% increase in undetected threats due to foliage, terrain complexity, and urban concealment since 2021."</p>
+                        <p class="card-source"><a href="#">World Defense Analysis</a> | MJune 2024</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="quantum-card">
+                    <div class="card-image">
+                        <img src="2A.jpeg" alt="Quantum Computer">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-quote">"Legacy thermal and optical systems suffer from high false positive rates and limited penetration in jungle or forest environments."</p>
+                        <p class="card-source"><a href="#">Military Technical Journal</a> | February 2023</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="quantum-card">
+                    <div class="card-image">
+                        <img src="3A.jpeg" alt="MIT Technology Review">
+                    </div>
+                    <div class="card-content">
+                        <p class="card-quote">"Adoption of AI-powered multi-layer imaging is now seen as essential to troop safety and rapid mission response worldwide."</p>
+                        <p class="card-source"><a href="#">International Defense Review</a> | October 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATA SECTION -->
+    <section class="data-section">
+        <div class="section-wrapper">
+            <div class="data-visual">
+                <img src="sideimage2.jpg" alt="AOS Defense Technology">
+            </div>
+            <div class="data-content">
+                <h2>The Most Valuable Data for Mission-Critical Defense</h2>
+                <p>Advanced AI Optical System (AOS) delivers unprecedented tactical clarity through complex terrain where concealment was once an advantage.</p>
+                <ul class="data-bullets">
+                    <li>3X better detection in dense vegetation and complex terrain</li>
+                    <li>AI-driven threat recognition and tactical analysis</li>
+                    <li>Field-validated across Indian defense operations</li>
+                    <li>Real-time decision support for command centers</li>
+                </ul>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY SECTION -->
+    <section class="focus-section">
+        <div class="focus-wrapper">
+            <div class="focus-content">
+                <h2>Autonomous Tactical Intelligence for Modern Warfare</h2>
+                <ul class="focus-features">
+                    <li>Canopy-penetrating thermal and optical fusion</li>
+                    <li>Real-time AI threat classification and tracking</li>
+                    <li>Integrated with existing defense command systems</li>
+                    <li>Drone and platform-agnostic deployment</li>
+                    <li>Advanced encryption and secure communications</li>
+                    <li>Continuous field learning and adaptation</li>
+                </ul>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+            <div class="focus-visual">
+                <video autoplay muted loop playsinline>
+                    <source src="bfg5.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLATFORM SECTION -->
+    <section class="platform-section">
+        <div class="container">
+            <div class="platform-header">
+                <div class="badge">Helious™ Platform</div>
+                <h1>The World's First Integrated<br>Defense AI Imaging Platform</h1>
+                <p class="subtitle">
+                    Aggregate multi-perspective aerial imaging, real-time airborne optical sectioning (AOS), and powerful AI object classification in one deployable solution.
+                </p>
+                <p class="subtitle">
+                    Unlock tactical clarity and life-saving detection with Helious™. Seamlessly integrates with drones, helicopters, and ground platforms. Delivers real-time, multi-layer signal reconstruction to see through foliage, camouflage, and complex terrain. Strengthen and elevate your defense intelligence infrastructure like never before with Helious™
+                </p>
+            </div>
+
+            <div class="platform-container">
+                <div class="image-placeholder">
+                    <img src="Design_a_sleek_202511120530 (1).jpeg" alt="Helious Platform Diagram">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

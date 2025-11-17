@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Section</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            background: #ffffff;
+        }
+
+        /* ===== DATA SECTION ===== */
+        .data-section {
+            width: 100%;
+            padding: 0;
+            background: #ffffff;
+            display: flex;
+            align-items: stretch;
+            justify-content: flex-start;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .section-wrapper {
+            width: 100%;
+            display: grid;
+            grid-template-columns: 60% 40%;
+            gap: 0;
+            align-items: stretch;
+        }
+
+        .data-visual {
+            justify-self: stretch;
+            align-self: stretch;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .data-visual img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            border-radius: 0;
+            box-shadow: none;
+            object-fit: cover;
+        }
+
+        .data-content {
+            padding: 6rem 4rem 6rem 4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            justify-content: center;
+            height: 100%;
+            background: #ffffff;
+        }
+
+        .data-content h2 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            color: #000000;
+            letter-spacing: -0.5px;
+        }
+
+        .data-content p {
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: #555555;
+            margin-bottom: 0.5rem;
+        }
+
+        .data-bullets {
+            list-style: none;
+            margin: 2rem 0 0 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+        }
+
+        .data-bullets li {
+            display: flex;
+            gap: 1.2rem;
+            color: #555555;
+            font-size: 1.05rem;
+            align-items: flex-start;
+            line-height: 1.5;
+        }
+
+        .data-bullets li::before {
+            content: '✓';
+            color: #ff9500;
+            font-weight: bold;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            margin-top: -2px;
+        }
+
+        .learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: #ff9500;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            width: fit-content;
+        }
+
+        .learn-more::after {
+            content: '→';
+        }
+
+        .learn-more:hover {
+            color: #ff8c00;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .section-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .data-visual {
+                min-height: 400px;
+            }
+
+            .data-content {
+                padding: 4rem 2rem;
+            }
+
+            .data-content h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .data-section {
+                padding: 0;
+                min-height: auto;
+            }
+
+            .data-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .data-content h2 {
+                font-size: 2rem;
+            }
+
+            .data-content p {
+                font-size: 1rem;
+            }
+
+            .data-bullets li {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="data-section">
+        <div class="section-wrapper">
+            <div class="data-visual">
+                <img src="leftsection3.png" alt="AOS Technology">
+            </div>
+            <div class="data-content">
+                <h2>The Most Valuable Data for Mission-Critical Defense</h2>
+                <p>Advanced AI Optical System delivers unprecedented tactical clarity through complex terrain where concealment was once an advantage.</p>
+                <ul class="data-bullets">
+                    <li>3X better detection in dense vegetation and complex terrain</li>
+                    <li>AI-driven threat recognition and tactical analysis</li>
+                    <li>Field-validated across Indian defense operations</li>
+                    <li>Real-time decision support for command centers</li>
+                </ul>
+                <a href="#" class="learn-more">Learn More</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
