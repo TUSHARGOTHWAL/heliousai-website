@@ -14,6 +14,7 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
             overflow-x: hidden;
+            background: #fff;
         }
 
         /* ===== NAVIGATION ===== */
@@ -22,34 +23,41 @@
             top: 0;
             left: 0;
             right: 0;
+            height: auto;
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem 2.5rem;
+            padding: 1rem clamp(15px, 5vw, 40px);
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
         .nav-logo {
-            font-size: 1.3rem;
+            font-size: clamp(1rem, 3vw, 1.3rem);
             font-weight: 700;
             color: #fff;
             letter-spacing: 1px;
         }
 
+        .nav-logo img {
+            height: clamp(40px, 8vw, 60px);
+            width: auto;
+            object-fit: contain;
+        }
+
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: clamp(1.5rem, 4vw, 2.5rem);
             align-items: center;
         }
 
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
             font-weight: 500;
             transition: color 0.3s ease;
             cursor: pointer;
@@ -63,9 +71,9 @@
             background: #ff9500;
             color: #fff;
             border: none;
-            padding: 0.7rem 1.8rem;
+            padding: clamp(0.6rem, 1.5vw, 0.7rem) clamp(1.2rem, 3vw, 1.8rem);
             border-radius: 4px;
-            font-size: 0.95rem;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
@@ -87,6 +95,8 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background: #fff;
+            margin-top: 70px;
         }
 
         .hero-video {
@@ -115,15 +125,15 @@
             z-index: 3;
             text-align: center;
             color: #fff;
-            max-width: 900px;
-            padding: 2rem;
+            max-width: 90%;
+            padding: clamp(1rem, 4vw, 2rem);
         }
 
         .hero h1 {
-            font-size: 4.5rem;
+            font-size: clamp(1.8rem, 8vw, 4.5rem);
             font-weight: 700;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
             letter-spacing: -1px;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
         }
@@ -133,31 +143,34 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
+            font-size: clamp(0.9rem, 3vw, 1.3rem);
             font-weight: 400;
             line-height: 1.6;
-            margin-bottom: 2.5rem;
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
             color: rgba(255, 255, 255, 0.95);
             text-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
         }
 
         .hero-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: clamp(1rem, 3vw, 1.5rem);
             justify-content: center;
             flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            padding: clamp(0.7rem, 2vw, 1rem) clamp(1.5rem, 4vw, 2.5rem);
         }
 
         .btn-primary {
             background: #ff9500;
             color: #fff;
-            border: none;
-            padding: 1rem 2.5rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(255, 149, 0, 0.4);
         }
 
@@ -171,12 +184,6 @@
             background: transparent;
             color: #fff;
             border: 2px solid rgba(255, 255, 255, 0.8);
-            padding: 0.85rem 2.3rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
         }
 
         .btn-secondary:hover {
@@ -188,8 +195,8 @@
         /* ===== QUANTUM THREAT SECTION ===== */
         .quantum-section {
             width: 100%;
-            padding: 100px 40px;
-            background: #f8f8f8;
+            padding: clamp(50px, 10vw, 100px) clamp(15px, 5vw, 40px);
+            background: #fff;
         }
 
         .quantum-container {
@@ -199,12 +206,22 @@
 
         .quantum-header {
             text-align: center;
-            margin-bottom: 80px;
+            margin-bottom: clamp(40px, 8vw, 80px);
+        }
+
+        .quantum-header h7 {
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+            color: #ff9500;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
         }
 
         .quantum-header h2 {
-            font-size: 3rem;
-            font-weight: 400;
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
             color: #000;
             line-height: 1.3;
             margin-bottom: 30px;
@@ -212,7 +229,7 @@
         }
 
         .quantum-header p {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: #333;
             line-height: 1.7;
             max-width: 900px;
@@ -222,8 +239,8 @@
 
         .quantum-cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: clamp(20px, 4vw, 40px);
         }
 
         .quantum-card {
@@ -241,7 +258,7 @@
 
         .card-image {
             width: 100%;
-            height: 280px;
+            height: clamp(150px, 30vw, 280px);
             overflow: hidden;
             background: #000;
             display: flex;
@@ -256,11 +273,11 @@
         }
 
         .card-content {
-            padding: 32px;
+            padding: clamp(20px, 4vw, 32px);
         }
 
         .card-quote {
-            font-size: 1.05rem;
+            font-size: clamp(0.85rem, 2vw, 1.05rem);
             color: #1a1a1a;
             line-height: 1.7;
             margin-bottom: 24px;
@@ -268,7 +285,7 @@
         }
 
         .card-source {
-            font-size: 0.95rem;
+            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
             color: #000;
             font-weight: 600;
         }
@@ -286,302 +303,179 @@
         /* ===== DATA SECTION ===== */
         .data-section {
             width: 100%;
-            padding: 6rem 2rem;
+            padding: clamp(30px, 8vw, 60px) clamp(15px, 5vw, 40px);
             background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: auto;
         }
 
         .section-wrapper {
-            max-width: 1400px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: clamp(30px, 6vw, 50px);
             align-items: center;
+        }
+
+        .data-visual {
+            justify-self: center;
+            width: 100%;
+            max-width: 600px;
         }
 
         .data-visual img {
             width: 100%;
-            max-width: 550px;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            display: block;
+            border-radius: 0;
+            box-shadow: none;
+            object-fit: contain;
+        }
+
+        .data-content {
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            justify-content: center;
+            height: auto;
+            text-align: center;
         }
 
         .data-content h2 {
-            font-size: 2.8rem;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
             color: #1a1a1a;
         }
 
         .data-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            line-height: 1.7;
             color: #4a4a4a;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .data-bullets {
             list-style: none;
-            margin: 1.5rem 0;
+            margin: 1rem auto;
+            max-width: 500px;
         }
 
         .data-bullets li {
             display: flex;
             gap: 1rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: #4a4a4a;
-            font-size: 1rem;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            align-items: flex-start;
+            justify-content: center;
         }
 
         .data-bullets li::before {
-            content: '✓';
-            color: #ff9500;
+            content: '•';
+            color: #000;
             font-weight: bold;
-        }
-
-        .learn-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: #ff9500;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
-        .learn-more::after {
-            content: '→';
-        }
-
-        .learn-more:hover {
-            color: #ff8c00;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         /* ===== FOCUS SECTION ===== */
         .focus-section {
             width: 100%;
-            padding: 6rem 2rem;
-            background: #f5f5f5;
+            padding: clamp(50px, 10vw, 100px) clamp(15px, 5vw, 40px);
+            background: #0a0a0a;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: auto;
         }
 
         .focus-wrapper {
             max-width: 1400px;
             width: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: 1fr;
+            gap: clamp(30px, 6vw, 60px);
             align-items: center;
         }
 
         .focus-content h2 {
-            font-size: 2.8rem;
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 2.5rem;
-            color: #1a1a1a;
+            margin-bottom: clamp(20px, 4vw, 30px);
+            color: #ffffff;
+            letter-spacing: -0.5px;
         }
 
         .focus-features {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 12px;
+            position: relative;
         }
 
         .focus-features li {
             display: flex;
             align-items: flex-start;
-            gap: 1.2rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #4a4a4a;
+            position: relative;
+            padding: 8px 0;
+            border-left: 2px solid transparent;
+            padding-left: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            line-height: 1.4;
+            color: #e0e0e0;
+        }
+
+        .focus-features li:hover {
+            border-left-color: #ff9500;
         }
 
         .focus-features li::before {
-            content: '✓';
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            border: 2px solid #1a1a1a;
-            border-radius: 50%;
-            font-weight: 700;
-            color: #1a1a1a;
-            flex-shrink: 0;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: #ff9500;
+            opacity: 0;
+            animation-fill-mode: forwards;
         }
+
+        .focus-features li:nth-child(1)::before { animation: loadLine1 12s ease-in-out infinite; }
+        .focus-features li:nth-child(2)::before { animation: loadLine2 12s ease-in-out infinite; }
+        .focus-features li:nth-child(3)::before { animation: loadLine3 12s ease-in-out infinite; }
+        .focus-features li:nth-child(4)::before { animation: loadLine4 12s ease-in-out infinite; }
+        .focus-features li:nth-child(5)::before { animation: loadLine5 12s ease-in-out infinite; }
+        .focus-features li:nth-child(6)::before { animation: loadLine6 12s ease-in-out infinite; }
+
+        @keyframes loadLine1 { 0%, 8% { opacity: 0; } 8%, 20% { opacity: 1; } 20%, 100% { opacity: 1; } }
+        @keyframes loadLine2 { 0%, 24% { opacity: 0; } 24%, 36% { opacity: 1; } 36%, 100% { opacity: 1; } }
+        @keyframes loadLine3 { 0%, 40% { opacity: 0; } 40%, 52% { opacity: 1; } 52%, 100% { opacity: 1; } }
+        @keyframes loadLine4 { 0%, 56% { opacity: 0; } 56%, 68% { opacity: 1; } 68%, 100% { opacity: 1; } }
+        @keyframes loadLine5 { 0%, 72% { opacity: 0; } 72%, 84% { opacity: 1; } 84%, 100% { opacity: 1; } }
+        @keyframes loadLine6 { 0%, 88% { opacity: 0; } 88%, 100% { opacity: 1; } }
 
         .focus-visual video {
             width: 100%;
-            max-width: 600px;
+            max-width: 100%;
             border-radius: 16px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        /* ===== PLATFORM SECTION ===== */
-        .platform-section {
-            background: #000;
-            color: #fff;
-            padding: 80px 40px 140px 40px;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .platform-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .badge {
-            display: inline-block;
-            border: 1px solid #ff4444;
-            color: #ff4444;
-            padding: 6px 14px;
-            border-radius: 16px;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .platform-header h1 {
-            font-size: 2.8rem;
-            font-weight: 400;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .subtitle {
-            color: #999;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            max-width: 650px;
-            margin: 0 auto 15px;
-        }
-
-        .platform-container {
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
-            box-shadow: none;
-            border: none;
-        }
-
-        .image-placeholder {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-placeholder img {
-            max-width: 90%;
-            height: auto;
-            border-radius: 0;
-            display: block;
-        }
-
-        /* ===== PARTNERS TRANSITION SECTION ===== */
-        .partners-section {
-            width: 100%;
-            padding: 0 40px;
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 100;
-            margin: -100px 0 0 0;
-        }
-
-        .partners-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px 50px;
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .partners-container {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-            align-items: center;
-        }
-
-        .partner-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 18px;
-            text-align: center;
-        }
-
-        .partner-logos {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-placeholder {
-            width: 56px;
-            height: 56px;
-            background: #e8e8e8;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: #999;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        .logo-text {
-            font-size: 10px;
-            color: #1a1a1a;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-        }
-
-        .partner-description {
-            font-size: 0.85rem;
-            color: #666;
-            line-height: 1.5;
-            font-style: italic;
-            font-weight: 400;
-            max-width: 200px;
-        }
-
-        .divider {
-            display: none;
         }
 
         /* ===== MISSION READY SECTION ===== */
         .mission-section {
             background: #ffffff;
-            color: #1a1a1a;
-            padding: 40px 40px 80px 40px;
+            color: #000;
+            padding: clamp(50px, 10vw, 120px) clamp(15px, 5vw, 40px) clamp(40px, 8vw, 80px);
         }
 
         .mission-wrap {
@@ -592,18 +486,18 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: clamp(30px, 6vw, 50px);
         }
 
         .section-header h2 {
-            font-size: 2.8rem;
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
             margin-bottom: 20px;
             color: #1a1a1a;
-            font-weight: 400;
+            font-weight: 700;
         }
 
         .section-header p {
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
             color: #4a4a4a;
             max-width: 720px;
             margin: auto;
@@ -612,21 +506,21 @@
 
         .grid {
             display: grid;
-            grid-template-columns: 1fr 150px;
-            gap: 18px;
+            grid-template-columns: 1fr;
+            gap: clamp(20px, 4vw, 30px);
             align-items: start;
         }
 
         .right-col {
-            width: 150px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: clamp(12px, 3vw, 18px);
         }
 
         .square {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            aspect-ratio: 1;
             border-radius: 12px;
             overflow: hidden;
             position: relative;
@@ -651,7 +545,7 @@
         }
 
         .overlay h6 {
-            font-size: 0.9rem;
+            font-size: clamp(0.65rem, 1.5vw, 0.9rem);
             margin-bottom: 4px;
             color: #fff;
         }
@@ -659,7 +553,8 @@
         .left-card {
             border-radius: 14px;
             overflow: hidden;
-            height: 468px;
+            height: auto;
+            min-height: 250px;
             background: #111;
             position: relative;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
@@ -674,365 +569,700 @@
 
         .left-info {
             position: absolute;
-            left: 20px;
-            bottom: 20px;
+            left: clamp(10px, 3vw, 20px);
+            bottom: clamp(10px, 3vw, 20px);
             background: rgba(0, 0, 0, 0.6);
-            padding: 14px 16px;
+            padding: 12px 14px;
             border-radius: 10px;
-            max-width: 360px;
+            max-width: 85%;
         }
 
         .left-info h3 {
             margin: 0 0 8px;
-            font-size: 1rem;
+            font-size: clamp(0.8rem, 2vw, 1rem);
             color: #fff;
         }
 
         .left-info p {
             margin: 0;
-            font-size: 0.85rem;
+            font-size: clamp(0.7rem, 1.5vw, 0.85rem);
             color: #ccc;
             line-height: 1.3rem;
         }
 
         .footer-tagline {
             text-align: center;
-            color: #aaa;
-            font-size: 0.9rem;
+            color: #ff9500;
+            font-size: clamp(0.75rem, 2vw, 0.9rem);
             margin-top: 30px;
             line-height: 1.3rem;
         }
 
-        /* ===== FIELD TESTED SECTION ===== */
-        .field-tested-section {
+        /* ===== PHYSICS OF ADVANTAGE SECTION ===== */
+        .insights-section {
             width: 100%;
-            padding: 80px 40px 60px;
+            padding: clamp(50px, 10vw, 100px) clamp(15px, 5vw, 40px);
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
+            min-height: auto;
         }
 
-        .field-container {
-            max-width: 1300px;
+        .insights-container {
+            max-width: 1400px;
             width: 100%;
         }
 
-        .field-section-title {
-            text-align: center;
-            margin-bottom: 50px;
+        .insights-header {
+            margin-bottom: clamp(40px, 8vw, 80px);
         }
 
-        .field-section-title h2 {
-            font-size: 2.4rem;
+        .insights-header h1 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
             font-weight: 700;
             color: #fff;
-            letter-spacing: -0.5px;
+            line-height: 1.2;
             margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
 
-        .dashed-line {
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
-            border-top: 2px dashed #0066cc;
-            opacity: 0.6;
+        .insights-header p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #bbb;
+            line-height: 1.7;
+            max-width: 900px;
         }
 
-        .field-content-wrapper {
+        .insights-cards {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-            margin-bottom: 50px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: clamp(20px, 4vw, 30px);
         }
 
-        .content-card {
-            position: relative;
-            background: transparent;
-            border: none;
-            border-radius: 16px;
-            padding: 10px 0;
+        .insight-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .insight-card .card-image {
+            width: 100%;
+            height: clamp(150px, 25vw, 220px);
+            background: linear-gradient(135deg, #1a3a52 0%, #0f1419 100%);
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 250px;
         }
 
-        .content-card img {
-            width: 85%;
+        .insight-card .card-image img {
+            width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center top;
-            border: none;
-            border-radius: 12px;
-            display: block;
         }
 
-        .img-caption {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 5px 12px;
-            font-size: 0.9rem;
-            border-radius: 6px;
-            backdrop-filter: blur(6px);
-            text-align: center;
-            width: 80%;
-        }
-
-        .stats-section {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 40px;
-            padding: 0 20px;
-        }
-
-        .stat-item {
+        .insight-card .card-content {
+            padding: clamp(16px, 3vw, 28px);
+            flex: 1;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 16px;
         }
 
-        .stat-line {
-            width: 100%;
-            height: 2px;
-            background: #0066cc;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+        .card-tag {
+            font-size: clamp(0.65rem, 1.2vw, 0.75rem);
+            color: #999;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
-        .stat-circle {
-            width: 10px;
-            height: 10px;
-            background: #0066cc;
-            border-radius: 50%;
-            flex-shrink: 0;
+        .card-title {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.4;
         }
 
-        .stat-text {
-            font-size: 0.95rem;
-            color: #e0e0e0;
+        .card-description {
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            color: #bbb;
             line-height: 1.6;
             font-weight: 400;
         }
 
-        .stat-text strong {
-            color: #fff;
+        /* ===== TEAM SECTION ===== */
+        .team-section {
+            width: 100%;
+            padding: clamp(50px, 10vw, 100px) clamp(15px, 5vw, 40px);
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: auto;
+        }
+
+        .team-container {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: clamp(30px, 6vw, 40px);
+        }
+
+        .team-header h2 {
+            font-size: clamp(1.8rem, 5vw, 3rem);
+            font-weight: 700;
+            color: #000;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .team-header p {
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #666;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: clamp(20px, 4vw, 30px);
+            align-items: center;
+            justify-items: center;
+        }
+
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: clamp(15px, 3vw, 24px);
+            width: 100%;
+        }
+
+        .member-image-wrapper {
+            position: relative;
+            width: clamp(100px, 18vw, 160px);
+            height: clamp(100px, 18vw, 160px);
+        }
+
+        .member-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 45% 55% 50% 50% / 50% 50% 50% 50%;
+            background: linear-gradient(135deg, #ff9500 0%, #ff6b35 50%, #f7333d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(255, 149, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: blobShift 6s infinite ease-in-out;
+        }
+
+        @keyframes blobShift {
+            0%, 100% { border-radius: 45% 55% 50% 50% / 50% 50% 50% 50%; }
+            25% { border-radius: 55% 45% 55% 45% / 45% 55% 45% 55%; }
+            50% { border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%; }
+            75% { border-radius: 45% 50% 55% 45% / 50% 55% 45% 50%; }
+        }
+
+        .member-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(255, 149, 0, 0.5);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info h3 {
+            font-size: clamp(0.95rem, 2vw, 1.3rem);
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: clamp(0.75rem, 1.5vw, 0.95rem);
+            color: #ff9500;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .member-description {
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            color: #666;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: clamp(40px, 8vw, 60px) clamp(15px, 5vw, 40px) clamp(20px, 4vw, 40px);
+        }
+
+        .footer-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .logo-text {
+            font-size: clamp(18px, 4vw, 28px);
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+        }
+
+        .logo-text img {
+            height: clamp(50px, 10vw, 80px);
+            width: auto;
+            vertical-align: middle;
+        }
+
+        .tagline {
+            color: #8e96a3;
+            font-size: clamp(12px, 1.5vw, 13px);
+            margin-top: 8px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: clamp(30px, 6vw, 60px);
+            margin-bottom: clamp(20px, 4vw, 40px);
+            text-align: center;
+        }
+
+        .footer-section {
+            text-align: center;
+        }
+
+        .footer-section h4 {
+            font-size: clamp(11px, 1.5vw, 14px);
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #b0b8c1;
+            text-decoration: none;
+            font-size: clamp(11px, 1.5vw, 14px);
+            transition: color 0.3s ease;
+            word-break: break-word;
+        }
+
+        .footer-section a:hover {
+            color: #2ea8e5;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #999;
+            font-size: clamp(11px, 1.5vw, 13px);
+            padding-top: clamp(20px, 4vw, 40px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: clamp(20px, 5vw, 40px);
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h2 {
+            font-size: clamp(1.4rem, 4vw, 1.8rem);
+            color: #ff9500;
+            margin-bottom: 15px;
             font-weight: 700;
         }
 
-        /* ===== RESPONSIVE ===== */
+        .modal-content p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .modal-close-btn {
+            background: #ff9500;
+            color: #fff;
+            border: none;
+            padding: clamp(0.6rem, 2vw, 0.7rem) clamp(1.2rem, 3vw, 2rem);
+            border-radius: 4px;
+            font-size: clamp(0.8rem, 2vw, 0.95rem);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
         @media (max-width: 768px) {
+            nav {
+                padding: 1rem clamp(12px, 3vw, 20px);
+            }
+
             .nav-links {
-                display: none;
+                gap: clamp(1rem, 3vw, 2rem);
+            }
+
+            .nav-links a {
+                font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            }
+
+            .hero {
+                margin-top: 60px;
+                height: auto;
+                min-height: 70vh;
+                padding: 2rem 1rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
             }
 
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: clamp(1.5rem, 6vw, 2.5rem);
+                margin-bottom: 1rem;
             }
 
             .hero p {
-                font-size: 1.1rem;
+                font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+                margin-bottom: 1.5rem;
             }
 
-            .quantum-header h2 {
-                font-size: 2rem;
+            .quantum-section {
+                padding: clamp(40px, 8vw, 60px) clamp(12px, 4vw, 20px);
             }
 
             .quantum-cards {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: clamp(15px, 3vw, 25px);
             }
 
-            .section-wrapper,
+            .card-image {
+                height: clamp(150px, 40vw, 220px);
+            }
+
+            .data-section {
+                padding: clamp(30px, 6vw, 50px) clamp(12px, 4vw, 20px);
+            }
+
+            .section-wrapper {
+                gap: clamp(20px, 4vw, 30px);
+            }
+
+            .focus-section {
+                padding: clamp(40px, 8vw, 60px) clamp(12px, 4vw, 20px);
+            }
+
             .focus-wrapper {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: clamp(20px, 4vw, 30px);
             }
 
-            .data-content h2,
-            .focus-content h2 {
-                font-size: 1.8rem;
-            }
-
-            .platform-header h1,
-            .section-header h2 {
-                font-size: 2rem;
+            .mission-section {
+                padding: clamp(40px, 8vw, 80px) clamp(12px, 4vw, 20px);
             }
 
             .grid {
-                grid-template-columns: 1fr;
+                gap: clamp(15px, 3vw, 20px);
             }
 
             .right-col {
-                width: 100%;
-                flex-direction: row;
-                gap: 10px;
-                justify-content: space-between;
+                grid-template-columns: repeat(2, 1fr);
+                gap: clamp(10px, 2vw, 15px);
             }
 
             .square {
-                width: calc((100% - 20px) / 3);
-                height: auto;
-                aspect-ratio: 1 / 1;
+                min-height: 120px;
             }
 
-            .left-card {
-                height: 330px;
+            .insights-section {
+                padding: clamp(40px, 8vw, 60px) clamp(12px, 4vw, 20px);
             }
 
-            .left-info {
-                max-width: 80%;
-            }
-
-            .partners-section {
-                padding: 40px 20px;
-                transform: translateY(-60px);
-            }
-
-            .partners-card {
-                padding: 32px 24px;
-                border-radius: 16px;
-            }
-
-            .partners-container {
+            .insights-cards {
                 grid-template-columns: 1fr;
-                gap: 30px;
+                gap: clamp(15px, 3vw, 20px);
             }
 
-            .logo-placeholder {
-                width: 48px;
-                height: 48px;
-                font-size: 9px;
+            .team-section {
+                padding: clamp(40px, 8vw, 80px) clamp(12px, 4vw, 20px);
             }
 
-            .partner-description {
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: clamp(15px, 3vw, 20px);
+            }
+
+            .member-image-wrapper {
+                width: clamp(80px, 15vw, 140px);
+                height: clamp(80px, 15vw, 140px);
+            }
+
+            .footer {
+                padding: clamp(30px, 6vw, 50px) clamp(12px, 4vw, 20px);
+            }
+
+            .footer-content {
+                gap: clamp(20px, 4vw, 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav {
+                padding: 0.8rem 10px;
+            }
+
+            .nav-logo img {
+                height: clamp(35px, 6vw, 50px);
+            }
+
+            .nav-links {
+                gap: 0.8rem;
+            }
+
+            .nav-demo {
+                padding: 0.5rem 1rem;
                 font-size: 0.8rem;
             }
 
-            .field-section-title h2 {
-                font-size: 1.8rem;
+            .hero {
+                margin-top: 50px;
+                min-height: 60vh;
             }
 
-            .field-content-wrapper {
+            .hero h1 {
+                font-size: clamp(1.3rem, 5vw, 2rem);
+            }
+
+            .quantum-cards {
                 grid-template-columns: 1fr;
-                gap: 20px;
             }
 
-            .content-card {
-                height: 220px;
+            .card-image {
+                height: clamp(120px, 35vw, 180px);
             }
 
-            .stats-section {
+            .focus-wrapper {
+                gap: clamp(15px, 3vw, 25px);
+            }
+
+            .right-col {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .team-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+            }
+
+            .member-image-wrapper {
+                width: clamp(70px, 12vw, 120px);
+                height: clamp(70px, 12vw, 120px);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 360px) {
+            body {
+                font-size: 14px;
+            }
+
+            nav {
+                padding: 0.5rem 8px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-demo {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.75rem;
+            }
+
+            .hero h1 {
+                font-size: clamp(1.2rem, 4vw, 1.8rem);
+            }
+
+            .hero p {
+                font-size: clamp(0.8rem, 2vw, 1rem);
+            }
+
+            .section-header h2,
+            .team-header h2 {
+                font-size: clamp(1.4rem, 4vw, 2rem);
+            }
+
+            .grid,
+            .insights-cards {
+                gap: clamp(10px, 2vw, 15px);
+            }
+
+            .square {
+                min-height: 100px;
+            }
+
+            .member-image-wrapper {
+                width: clamp(60px, 10vw, 100px);
+                height: clamp(60px, 10vw, 100px);
             }
         }
     </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav>
-        <div class="nav-logo">HELIOUS AI</div>
+        <div class="nav-logo">
+            <img src="logo.png" alt="Company Logo">
+        </div>
         <ul class="nav-links">
             <li><a href="#about">About</a></li>
             <li><a href="#solutions">Solutions</a></li>
-            <li><a href="#technology">Technology</a></li>
+            <li><a href="roadmap.html">Technology</a></li>
             <li><a href="#mission">Mission</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
         <button class="nav-demo">Get in Touch</button>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline>
-            <source src="bg1.mp4" type="video/mp4">
+            <source src="hero.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
             <h1>See Through The <span class="highlight">Noise</span><br>Real-Time AI Defense Clarity</h1>
             <p>Field-validated, canopy-penetrating AI for tactical advantage in complex terrain</p>
-            <div class="hero-buttons">
-                <button class="btn-primary">See Live Demo</button>
-                <button class="btn-secondary">Contact Us</button>
-            </div>
+            <div class="hero-buttons"></div>
         </div>
     </section>
 
-    <!-- QUANTUM THREAT SECTION -->
     <section class="quantum-section">
         <div class="quantum-container">
             <div class="quantum-header">
-                <h7> WHY NOW </h7>
-                <h2>Why Next-Generation AI Imaging Is Critical for Modern Defense Missions</h2>
-                <p>Increasingly, threats on the battlefield are concealed—hidden by dense terrain, camouflage, and unpredictable conditions. Conventional surveillance and imaging tools often fail to uncover dangers, leaving troops and assets exposed. There is a vital need for advanced airborne optical sectioning and real-time AI detection to reveal, classify, and respond to threats before they escalate—saving lives and ensuring mission success.</p>
+                <h7>WHY NOW</h7>
+                <h2>Tactical Clarity Over Concealment</h2>
+                <p>The real threat for our forces doesn't come from what's visible, it comes from what remains hidden. Dense canopy, rough terrain, urban clutter, and enemy camouflage routinely defeat conventional surveillance, leaving even advanced platforms struggling to identify real risks.</p>
             </div>
-
             <div class="quantum-cards">
-                <!-- Card 1 -->
                 <div class="quantum-card">
-                    <div class="card-image">
-                        <img src="1b.jpeg" alt="White House">
-                    </div>
+                    <div class="card-image"><img src="1b.jpeg" alt="Defense Analysis"></div>
                     <div class="card-content">
-                        <p class="card-quote">"Global military reports indicate a 67% increase in undetected threats due to foliage, terrain complexity, and urban concealment since 2021."</p>
-                        <p class="card-source"><a href="#">World Defense Analysis</a> | June 2024</p>
+                        <p class="card-quote">"It is still difficult to detect targets hidden inside vegetation, mainly owing to low detection and high false alarm, especially in dense foliage/vegetated terrain."</p>
+                        <p class="card-source"><a href="https://www.sdms.afrl.af.mil/content/challenge_areas/documents/A_challenge_problem_for_detection_of_targets_in_foliage.pdf" target="_blank">A Comprehensive Review on Foliage Penetration Radar</a> | 2021</p>
                     </div>
                 </div>
-
-                <!-- Card 2 -->
                 <div class="quantum-card">
-                    <div class="card-image">
-                        <img src="2A.jpeg" alt="Quantum Computer">
-                    </div>
+                    <div class="card-image"><img src="2A.jpeg" alt="Technical Journal"></div>
                     <div class="card-content">
-                        <p class="card-quote">"Legacy thermal and optical systems suffer from high false positive rates and limited penetration in jungle or forest environments."</p>
-                        <p class="card-source"><a href="#">Military Technical Journal</a> | February 2023</p>
+                        <p class="card-quote">"Conventional color and IR detection models have high false alarm rates. This is mainly because single-colour information is insufficient in most cases, especially in cluttered and dynamic backgrounds."</p>
+                        <p class="card-source"><a href="https://robocraze.com/blogs/post/ir-sensor-working/" target="_blank">Early Forest Fire Detection with Optical, IR & AI</a> | NIH/NLM</p>
                     </div>
                 </div>
-
-                <!-- Card 3 -->
                 <div class="quantum-card">
-                    <div class="card-image">
-                        <img src="3A.jpeg" alt="MIT Technology Review">
-                    </div>
+                    <div class="card-image"><img src="3A.jpeg" alt="Defense Review"></div>
                     <div class="card-content">
-                        <p class="card-quote">"Adoption of AI-powered multi-layer imaging is now seen as essential to troop safety and rapid mission response worldwide."</p>
-                        <p class="card-source"><a href="#">International Defense Review</a> | October 2025</p>
+                        <p class="card-quote">"Target camouflage, decoys, and natural concealment continuously degrade the performance of traditional EO/thermal imaging, requiring fusion of multiple sensor modalities to achieve robust detection."</p>
+                        <p class="card-source"><a href="https://mssdefence.com/blog/modern-camouflage-vs-detection-24-tactical-questions-answered/" target="_blank">DARPA Defense Sciences: Combatting Camouflage</a> | 2019</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DATA SECTION -->
     <section class="data-section">
         <div class="section-wrapper">
-            <div class="data-visual">
-                <img src="sideimage2.jpg" alt="AOS Defense Technology">
-            </div>
+            <div class="data-visual"><img src="leftsection3.png" alt="AOS Technology"></div>
             <div class="data-content">
                 <h2>The Most Valuable Data for Mission-Critical Defense</h2>
-                <p>Advanced AI Optical System (AOS) delivers unprecedented tactical clarity through complex terrain where concealment was once an advantage.</p>
+                <p>Advanced AI Optical System delivers unprecedented tactical clarity through complex terrain where concealment was once an advantage.</p>
                 <ul class="data-bullets">
                     <li>3X better detection in dense vegetation and complex terrain</li>
                     <li>AI-driven threat recognition and tactical analysis</li>
                     <li>Field-validated across Indian defense operations</li>
                     <li>Real-time decision support for command centers</li>
                 </ul>
-                <a href="#" class="learn-more">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- TECHNOLOGY SECTION -->
     <section class="focus-section">
         <div class="focus-wrapper">
             <div class="focus-content">
@@ -1045,7 +1275,6 @@
                     <li>Advanced encryption and secure communications</li>
                     <li>Continuous field learning and adaptation</li>
                 </ul>
-                <a href="#" class="learn-more">Learn More</a>
             </div>
             <div class="focus-visual">
                 <video autoplay muted loop playsinline>
@@ -1055,73 +1284,12 @@
         </div>
     </section>
 
-    <!-- PLATFORM SECTION -->
-    <section class="platform-section">
-        <div class="container">
-            <div class="platform-header">
-                <div class="badge">Helious™ Platform</div>
-                <h1>The World's First Integrated<br>Defense AI Imaging Platform</h1>
-                <p class="subtitle">
-                    Aggregate multi-perspective aerial imaging, real-time airborne optical sectioning (AOS), and powerful AI object classification in one deployable solution.
-                </p>
-                <p class="subtitle">
-                    Unlock tactical clarity and life-saving detection with Helious™. Seamlessly integrates with drones, helicopters, and ground platforms. Delivers real-time, multi-layer signal reconstruction to see through foliage, camouflage, and complex terrain. Strengthen and elevate your defense intelligence infrastructure like never before with Helious™
-                </p>
-            </div>
-
-            <div class="platform-container">
-                <div class="image-placeholder">
-                    <img src="Design_a_sleek_202511120530 (1).jpeg" alt="Helious Platform Diagram">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PARTNERS TRANSITION SECTION -->
-    <section class="partners-section">
-        <div class="partners-card">
-            <div class="partners-container">
-                <!-- Partner 1 -->
-                <div class="partner-item">
-                    <div class="partner-logos">
-                        <div class="logo-placeholder">P1</div>
-                    </div>
-                    <div class="logo-text">HOVERIT KAWA</div>
-                    <p class="partner-description">Custom UAV Solutions for Defence</p>
-                </div>
-
-                <!-- Partner 2 -->
-                <div class="partner-item">
-                    <div class="partner-logos">
-                        <div class="logo-placeholder">P2</div>
-                    </div>
-                    <div class="logo-text">AEGIS TECH</div>
-                    <p class="partner-description">Advanced Sensor Integration & Processing</p>
-                </div>
-
-                <!-- Partner 3 -->
-                <div class="partner-item">
-                    <div class="partner-logos">
-                        <div class="logo-placeholder">P3</div>
-                    </div>
-                    <div class="logo-text">QUANTUM AI</div>
-                    <p class="partner-description">Next-Gen Machine Learning Architecture</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MISSION READY SECTION -->
     <section class="mission-section">
         <div class="mission-wrap">
             <div class="section-header">
                 <h2>Are You Mission-Ready?</h2>
-                <p>
-                    In dense, unpredictable environments, success depends on uncovering the unseen.
-                    HeliousAI empowers your team to detect, plan, and act—real time, anywhere.
-                </p>
+                <p>In dense, unpredictable environments, success depends on uncovering the unseen. HeliousAI empowers your team to detect, plan, and act real time, anywhere.</p>
             </div>
-
             <div class="grid">
                 <div class="left-card">
                     <video autoplay loop muted playsinline>
@@ -1129,99 +1297,193 @@
                     </video>
                     <div class="left-info">
                         <h3>Penetrating Foliage with Optical Sectioning</h3>
-                        <p>
-                            HeliousAI's airborne optical sectioning (AOS) reveals the previously invisible,
-                            extracting actionable intelligence through dense forest canopies.
-                        </p>
+                        <p>HeliousAI's airborne optical sectioning (AOS) reveals the previously invisible, extracting actionable intelligence through dense forest canopies.</p>
                     </div>
                 </div>
-
                 <div class="right-col">
                     <div class="square">
                         <video autoplay loop muted playsinline>
                             <source src="Create_a_short_202511131557 (1)-vmake.mp4" type="video/mp4">
                         </video>
-                        <div class="overlay">
-                            <h6>E-AOS Imaging Module – Retrofit Any Aircraft</h6>
-                        </div>
+                        <div class="overlay"><h6>E-AOS Imaging Module</h6></div>
                     </div>
-
                     <div class="square">
                         <video autoplay loop muted playsinline>
                             <source src="canopy2.mp4" type="video/mp4">
                         </video>
-                        <div class="overlay">
-                            <h6>Helious VTOL Drone System – Force Multiplier</h6>
-                        </div>
+                        <div class="overlay"><h6>Helious VTOL Drone</h6></div>
                     </div>
-
                     <div class="square">
                         <video autoplay loop muted playsinline>
                             <source src="3_eaos_software_202511131554 (1).mp4" type="video/mp4">
                         </video>
-                        <div class="overlay">
-                            <h6>Indigenous Upgrade for Existing Feeds</h6>
-                        </div>
+                        <div class="overlay"><h6>Indigenous Upgrade</h6></div>
                     </div>
                 </div>
             </div>
-
-            <div class="footer-tagline">
-                "Every mission, every platform. HeliousAI turns the unseen into operational certainty."
-            </div>
+            <div class="footer-tagline">"Every mission, every platform. HeliousAI turns the unseen into operational certainty."</div>
         </div>
     </section>
 
-    <!-- FIELD TESTED & VALIDATED SECTION -->
-    <section class="field-tested-section">
-        <div class="field-container">
-            <div class="field-section-title">
-                <h2>FIELD - TESTED & VALIDATED</h2>
-                <div class="dashed-line"></div>
+    <section class="insights-section">
+        <div class="insights-container">
+            <div class="insights-header">
+                <h1>The Physics of Advantage</h1>
+                <p>Beyond Conventional Imaging: Standard thermal cameras see only a "thermal blanket" created by the canopy. E-AOS treats the environment as a 4D thermal light field, capturing thousands of images from different perspectives to computationally distinguish ground targets from occluding foliage.</p>
             </div>
-
-            <div class="field-content-wrapper">
-                <div class="content-card">
-                    <img src="raw.png" alt="RAW Image" />
-                    <div class="img-caption">RAW — Initial sensor capture format</div>
-                </div>
-
-                <div class="content-card">
-                    <img src="integral.png" alt="INTEGRAL Image" />
-                    <div class="img-caption">INTEGRAL — Enhanced data integration output</div>
-                </div>
-            </div>
-
-            <div class="stats-section">
-                <div class="stat-item">
-                    <div class="stat-line">
-                        <div class="stat-circle"></div>
-                    </div>
-                    <div class="stat-text">
-                        <strong>92% Detection Accuracy</strong> with 75% faster processing than traditional AOS methods.
+            <div class="insights-cards">
+                <div class="insight-card">
+                    <div class="card-image"><img src="physics1.png" alt="Smart Flight"></div>
+                    <div class="card-content">
+                        <div class="card-tag">01</div>
+                        <div class="card-title">Smart Flight Patterns</div>
+                        <div class="card-description">A UAV flies optimized trajectories to create a large 'synthetic aperture'. This captures maximum angular diversity to see through small gaps in the foliage.</div>
                     </div>
                 </div>
-
-                <div class="stat-item">
-                    <div class="stat-line">
-                        <div class="stat-circle"></div>
-                    </div>
-                    <div class="stat-text">
-                        Successfully detected humans under foliage in proof-of-concept experiments in <strong>Akhnoor</strong>, with <strong>100% accuracy</strong> in the test set.
+                <div class="insight-card">
+                    <div class="card-image"><img src="physics2.jpg" alt="Reconstruction"></div>
+                    <div class="card-content">
+                        <div class="card-tag">02</div>
+                        <div class="card-title">Multi-Layer Reconstruction</div>
+                        <div class="card-description">Our algorithms process thousands of high-precision geotagged thermal images to separate the thermal signatures of the canopy, mid-layer, and the ground.</div>
                     </div>
                 </div>
-
-                <div class="stat-item">
-                    <div class="stat-line">
-                        <div class="stat-circle"></div>
-                        <div class="stat-circle"></div>
+                <div class="insight-card">
+                    <div class="card-image"><img src="3rdphys.png" alt="Signal Integration"></div>
+                    <div class="card-content">
+                        <div class="card-tag">03</div>
+                        <div class="card-title">Signal vs. Noise Integration</div>
+                        <div class="card-description">As thousands of images are layered, a static target on the ground appears in the same location, reinforcing its signal. The canopy fades into translucent noise.</div>
                     </div>
-                    <div class="stat-text">
-                        The core technology has been successfully <strong>field-tested by US</strong> to find humans hiding under forest canopies.
+                </div>
+                <div class="insight-card">
+                    <div class="card-image"><img src="physics4.png" alt="Output"></div>
+                    <div class="card-content">
+                        <div class="card-tag">04</div>
+                        <div class="card-title">Actionable Output</div>
+                        <div class="card-description">The result is a single, clear 2D composite image of the ground, as if the foliage was never there. This foliage-penetrating view is delivered in near-real-time.</div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="team-section">
+        <div class="team-container">
+            <div class="team-header">
+                <h2>Meet the Team</h2>
+                <p>People behind HeliousAI who are dedicated to revolutionizing defense technology and saving lives.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image-wrapper">
+                        <div class="member-image"><img src="ravisir-removed.png" alt="Ravinder Pal"></div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Ravinder Pal</h3>
+                        <div class="member-role">Chief Visionary Officer</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image-wrapper">
+                        <div class="member-image"><img src="prakhar-removedbg.png" alt="Prakhar Tripathi"></div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Prakhar Tripathi</h3>
+                        <div class="member-role">Founder</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image-wrapper">
+                        <div class="member-image"><img src="tushar-removedbg.png" alt="Tushar Gothwal"></div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Tushar Gothwal</h3>
+                        <div class="member-role">Co-founder</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image-wrapper">
+                        <div class="member-image"><img src="kritika.png" alt="Kritika Singh"></div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Kritika Singh</h3>
+                        <div class="member-role">Core Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">
+            <div class="logo-text">
+                <img src="logo.png" alt="Company Logo">
+            </div>
+            <p class="tagline">Saving lives by eliminating uncertainty.</p>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="roadmap.html">Technology</a></li>
+                    <li><a href="#">Mission</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:prakhar@heliosai.com">prakhar@heliosai.com</a></li>
+                    <li><a href="tel:+91 8800271854">+91 88002 71854</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="https://www.linkedin.com/company/heliousai" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://x.com/heliousai" target="_blank">Twitter / X</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 HeliousAI Pvt. Ltd. All rights reserved. A Make in India Initiative.
+        </div>
+    </footer>
+
+    <div id="comingSoonModal" class="modal">
+        <div class="modal-content">
+            <h2>Coming Soon!</h2>
+            <p>We're working on something amazing. Stay tuned!</p>
+            <button class="modal-close-btn" onclick="closeModal()">Got it!</button>
+        </div>
+    </div>
+
+    <script>
+        function closeModal() {
+            document.getElementById('comingSoonModal').classList.remove('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const solutionsLink = document.querySelector('a[href="#solutions"]');
+            if (solutionsLink) {
+                solutionsLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('comingSoonModal').classList.add('active');
+                });
+            }
+
+            document.getElementById('comingSoonModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
