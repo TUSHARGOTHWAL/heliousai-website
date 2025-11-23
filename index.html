@@ -917,7 +917,7 @@
             background: #000;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding: 40px 20px 10px;
-            height: 510px;
+            /*height: 510px*/;
         }
 
         .footer-logo {
@@ -931,7 +931,7 @@
         }
 
         .tagline {
-            color: #8e96a3;
+            color: #fff;
             font-size: 13px;
             margin-top: 8px;
         }
@@ -949,7 +949,7 @@
         .footer-section h4 {
             font-size: 14px;
             font-weight: 700;
-            color: white;
+            color: rgb(255, 255, 255);
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 20px;
@@ -964,7 +964,7 @@
         }
 
         .footer-section a {
-            color: #b0b8c1;
+            color: #e0e0e0;
             text-decoration: none;
             font-size: 14px;
             transition: color 0.3s ease;
@@ -976,7 +976,7 @@
 
         .footer-bottom {
             text-align: center;
-            color: #999;
+            color: #e0e0e0;
             font-size: 13px;
             padding-top: 40px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -1123,21 +1123,23 @@
                 height: 38px;
             }
             .nav-center {
-                position: fixed;
-                top: 55px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 55px);
-                background: rgba(10, 25, 47, 0.95);
-                backdrop-filter: blur(30px) saturate(180%);
-                -webkit-backdrop-filter: blur(30px) saturate(180%);
-                flex-direction: column;
-                justify-content: flex-start;
-                padding: 2rem 1.5rem;
-                gap: 1.5rem;
-                transition: left 0.3s ease;
-                margin: 0;
-                overflow-y: auto;
+                    position: fixed;
+                    top: 55px;
+                    left: -100%;
+                    width: 100%;
+                    height: calc(100vh - 55px - 80px);
+                    background: rgba(10, 25, 47, 0.95);
+                    backdrop-filter: blur(30px) saturate(180%);
+                    -webkit-backdrop-filter: blur(30px) saturate(180%);
+                    flex-direction: column;
+                    justify-content: flex-start;
+                    padding: 2rem 1.5rem;
+                    gap: 1.5rem;
+                    transition: left 0.3s ease;
+                    margin: 0;
+                    overflow-y: auto;
+                    overflow-x: hidden;
+                    box-sizing: border-box;
             }
             .nav-center.active {
                 left: 0;
@@ -1155,12 +1157,18 @@
             }
             .nav-right {
                 position: fixed;
-                bottom: 2rem;
-                left: 1.5rem;
-                right: 1.5rem;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                display: none;
                 flex-direction: column;
                 gap: 0.8rem;
                 z-index: 1001;
+                padding: 1.5rem;
+                background: rgba(10, 25, 47, 0.95);
+                backdrop-filter: blur(30px) saturate(180%);
+                -webkit-backdrop-filter: blur(30px) saturate(180%);
+                box-sizing: border-box;
             }
             .nav-right.active {
                 display: flex;
@@ -1168,15 +1176,13 @@
             .nav-right:not(.active) {
                 display: none;
             }
-            .nav-login {
-                text-align: center;
-                font-size: 1rem;
-                padding: 0.5rem;
-            }
+           
             .nav-demo {
-                padding: 0.7rem 1.2rem;
-                font-size: 0.95rem;
+                padding: -1.0rem 3rem;
+                font-size: 1rem;
                 width: 100%;
+                box-sizing: border-box;
+                
             }
             .menu-toggle {
                 display: flex;
