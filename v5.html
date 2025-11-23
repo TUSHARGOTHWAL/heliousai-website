@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +12,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
             overflow-x: hidden;
+            background: #fff;
+            width: 100%;
+            max-width: 100vw;
         }
 
         /* ===== NAVIGATION ===== */
@@ -22,40 +31,84 @@
             top: 0;
             left: 0;
             right: 0;
+            height: 75px;
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem 2.5rem;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0 10.5rem;
+            background: rgba(60, 61, 63, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .nav-logo {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #fff;
             letter-spacing: 1px;
+            z-index: 1001;
+            flex-shrink: 0;
+        }
+
+        .nav-logo img {
+            height: 80px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            flex: 1;
+            justify-content: center;
+            margin: 0 1.5rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.875rem;
             font-weight: 500;
             transition: color 0.3s ease;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
+            color: #ff9500;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .nav-login {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-login:hover {
             color: #ff9500;
         }
 
@@ -63,19 +116,46 @@
             background: #ff9500;
             color: #fff;
             border: none;
-            padding: 0.7rem 1.8rem;
-            border-radius: 4px;
-            font-size: 0.95rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            font-size: 0.875rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+            white-space: nowrap;
         }
 
         .nav-demo:hover {
             background: #ff8c00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         /* ===== HERO SECTION ===== */
@@ -87,6 +167,7 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+            background: #fff;
         }
 
         .hero-video {
@@ -116,7 +197,7 @@
             text-align: center;
             color: #fff;
             max-width: 900px;
-            padding: 2rem;
+            padding: 1rem;
         }
 
         .hero h1 {
@@ -188,13 +269,16 @@
         /* ===== QUANTUM THREAT SECTION ===== */
         .quantum-section {
             width: 100%;
+            max-width: 100vw;
             padding: 100px 40px;
-            background: #f8f8f8;
+            background: #fff;
+            overflow: hidden;
         }
 
         .quantum-container {
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .quantum-header {
@@ -202,9 +286,19 @@
             margin-bottom: 80px;
         }
 
+        .quantum-header h7 {
+            font-size: 0.85rem;
+            color: #ff9500;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+
         .quantum-header h2 {
             font-size: 3rem;
-            font-weight: 400;
+            font-weight: 700;
             color: #000;
             line-height: 1.3;
             margin-bottom: 30px;
@@ -286,93 +380,103 @@
         /* ===== DATA SECTION ===== */
         .data-section {
             width: 100%;
-            padding: 6rem 2rem;
+            max-width: 100vw;
+            padding: 4rem 0;
             background: #ffffff;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start;
             min-height: 100vh;
+            position: relative;
+            overflow: hidden;
         }
 
         .section-wrapper {
-            max-width: 1400px;
             width: 100%;
+            max-width: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: 55% 45%;
+            gap: 0;
+            align-items: flex-start;
+        }
+
+        .data-visual {
+            justify-self: start;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: visible;
         }
 
         .data-visual img {
-            width: 100%;
-            max-width: 550px;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            height: 100%;
+            display: block;
+            border-radius: 0;
+            box-shadow: none;
+            object-fit: contain;
+            max-width: 100%;
+        }
+
+        .data-content {
+            padding: 0 2rem 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
+            justify-content: center;
+            height: 100%;
+            padding-top: 3rem;
         }
 
         .data-content h2 {
             font-size: 2.8rem;
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
+            margin-bottom: 0.8rem;
             color: #1a1a1a;
         }
 
         .data-content p {
-            font-size: 1.1rem;
-            line-height: 1.8;
+            font-size: 1rem;
+            line-height: 1.7;
             color: #4a4a4a;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .data-bullets {
             list-style: none;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
         }
 
         .data-bullets li {
             display: flex;
             gap: 1rem;
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
             color: #4a4a4a;
             font-size: 1rem;
+            align-items: center;
         }
 
         .data-bullets li::before {
-            content: '✓';
-            color: #ff9500;
+            content: '•';
+            color: #000;
             font-weight: bold;
-        }
-
-        .learn-more {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.8rem;
-            color: #ff9500;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-top: 1rem;
-        }
-
-        .learn-more::after {
-            content: '→';
-        }
-
-        .learn-more:hover {
-            color: #ff8c00;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
 
         /* ===== FOCUS SECTION ===== */
         .focus-section {
             width: 100%;
-            padding: 6rem 2rem;
-            background: #f5f5f5;
+            max-width: 100vw;
+            padding: 100px 40px;
+            background: #0a0a0a;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden;
         }
 
         .focus-wrapper {
@@ -385,43 +489,65 @@
         }
 
         .focus-content h2 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             font-weight: 700;
             line-height: 1.2;
-            margin-bottom: 2.5rem;
-            color: #1a1a1a;
+            margin-bottom: 30px;
+            color: #ffffff;
+            letter-spacing: -0.5px;
         }
 
         .focus-features {
             list-style: none;
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 12px;
+            position: relative;
         }
 
         .focus-features li {
             display: flex;
             align-items: flex-start;
-            gap: 1.2rem;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            color: #4a4a4a;
+            position: relative;
+            padding: 8px 0;
+            border-left: 2px solid transparent;
+            padding-left: 12px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            color: #e0e0e0;
+        }
+
+        .focus-features li:hover {
+            border-left-color: #ff9500;
         }
 
         .focus-features li::before {
-            content: '✓';
-            width: 28px;
-            height: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #ffffff;
-            border: 2px solid #1a1a1a;
-            border-radius: 50%;
-            font-weight: 700;
-            color: #1a1a1a;
-            flex-shrink: 0;
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            background: #ff9500;
+            opacity: 0;
+            animation-fill-mode: forwards;
         }
+
+        .focus-features li:nth-child(1)::before { animation: loadLine1 12s ease-in-out infinite; }
+        .focus-features li:nth-child(2)::before { animation: loadLine2 12s ease-in-out infinite; }
+        .focus-features li:nth-child(3)::before { animation: loadLine3 12s ease-in-out infinite; }
+        .focus-features li:nth-child(4)::before { animation: loadLine4 12s ease-in-out infinite; }
+        .focus-features li:nth-child(5)::before { animation: loadLine5 12s ease-in-out infinite; }
+        .focus-features li:nth-child(6)::before { animation: loadLine6 12s ease-in-out infinite; }
+
+        @keyframes loadLine1 { 0%, 8% { opacity: 0; } 8%, 100% { opacity: 1; } }
+        @keyframes loadLine2 { 0%, 24% { opacity: 0; } 24%, 100% { opacity: 1; } }
+        @keyframes loadLine3 { 0%, 40% { opacity: 0; } 40%, 100% { opacity: 1; } }
+        @keyframes loadLine4 { 0%, 56% { opacity: 0; } 56%, 100% { opacity: 1; } }
+        @keyframes loadLine5 { 0%, 72% { opacity: 0; } 72%, 100% { opacity: 1; } }
+        @keyframes loadLine6 { 0%, 88% { opacity: 0; } 88%, 100% { opacity: 1; } }
 
         .focus-visual video {
             width: 100%;
@@ -430,208 +556,991 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
-        /* ===== PLATFORM SECTION ===== */
-        .platform-section {
-            background: #000;
-            color: #fff;
-            padding: 80px 40px;
+        /* ===== MISSION READY SECTION ===== */
+        .mission-section {
+            background: #ffffff;
+            color: #000;
+            padding: 120px 40px 80px 40px;
+            max-width: 100vw;
+            overflow: hidden;
         }
 
-        .container {
-            max-width: 1300px;
+        .mission-wrap {
+            width: 100%;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .platform-header {
+        .section-header {
             text-align: center;
             margin-bottom: 50px;
         }
 
-        .badge {
-            display: inline-block;
-            border: 1px solid #ff4444;
-            color: #ff4444;
-            padding: 6px 14px;
-            border-radius: 16px;
-            font-size: 10px;
-            letter-spacing: 1.5px;
+        .section-header h2 {
+            font-size: 2.8rem;
             margin-bottom: 20px;
-            text-transform: uppercase;
+            color: #1a1a1a;
+            font-weight: 700;
         }
 
-        .platform-header h1 {
-            font-size: 2.8rem;
-            font-weight: 400;
+        .section-header p {
+            font-size: 1.1rem;
+            color: #4a4a4a;
+            max-width: 720px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 150px;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .right-col {
+            width: 150px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .square {
+            width: 150px;
+            height: 150px;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            background: #222;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .square:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 149, 0, 0.4);
+        }
+
+        .square video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .square .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+            padding: 10px;
+        }
+
+        .overlay h6 {
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+
+        .left-card {
+            border-radius: 14px;
+            overflow: hidden;
+            height: 468px;
+            background: #111;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .left-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(255, 149, 0, 0.3);
+        }
+
+        .left-card video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .left-info {
+            position: absolute;
+            left: 20px;
+            bottom: 20px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 14px 16px;
+            border-radius: 10px;
+            max-width: 360px;
+        }
+
+        .left-info h3 {
+            margin: 0 0 8px;
+            font-size: 1rem;
+            color: #fff;
+        }
+
+        .left-info p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #ccc;
+            line-height: 1.3rem;
+        }
+
+        .footer-tagline {
+            text-align: center;
+            color: #ff9500;
+            font-size: 0.9rem;
+            margin-top: 30px;
+            line-height: 1.3rem;
+        }
+
+        /* ===== PHYSICS SECTION ===== */
+        .insights-section {
+            width: 100%;
+            max-width: 100vw;
+            padding: 100px 40px;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .insights-container {
+            max-width: 1400px;
+            width: 100%;
+        }
+
+        .insights-header {
+            margin-bottom: 80px;
+        }
+
+        .insights-header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #fff;
             line-height: 1.2;
             margin-bottom: 20px;
+            letter-spacing: -0.5px;
         }
 
-        .subtitle {
-            color: #999;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            max-width: 650px;
-            margin: 0 auto 15px;
+        .insights-header p {
+            font-size: 1.1rem;
+            color: #bbb;
+            line-height: 1.7;
+            max-width: 900px;
         }
 
-        .platform-container {
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
-            box-shadow: none;
-            border: none;
+        .insights-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
         }
 
-        .image-placeholder {
+        .insight-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .insight-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(255, 255, 255, 0.1);
+        }
+
+        .insight-card .card-image {
             width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, #1a3a52 0%, #0f1419 100%);
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .image-placeholder img {
-            max-width: 90%;
-            height: auto;
-            border-radius: 0;
-            display: block;
+        .insight-card .card-content {
+            padding: 28px 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            color: #999;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1.4;
+        }
+
+        .card-description {
+            font-size: 0.9rem;
+            color: #bbb;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* ===== TEAM SECTION ===== */
+        .team-section {
+            width: 100%;
+            max-width: 100vw;
+            padding: 100px 40px 40px 40px;
+            background: #ffffff;
+            overflow: hidden;
+        }
+
+        .team-container {
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .team-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .team-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #000;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .team-header p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            align-items: center;
+            justify-items: center;
+        }
+
+        .team-grid .team-member:nth-child(1) {
+            grid-column: 1 / -1;
+            justify-self: center;
+            max-width: 250px;
+        }
+
+        .team-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 24px;
+        }
+
+        .member-image-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+        }
+
+        .member-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 45% 55% 50% 50% / 50% 50% 50% 50%;
+            background: linear-gradient(135deg, #ff9500 0%, #ff6b35 50%, #f7333d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(255, 149, 0, 0.3);
+            transition: all 0.3s ease;
+            animation: blobShift 6s infinite ease-in-out;
+        }
+
+        @keyframes blobShift {
+            0%, 100% { border-radius: 45% 55% 50% 50% / 50% 50% 50% 50%; }
+            25% { border-radius: 55% 45% 55% 45% / 45% 55% 45% 55%; }
+            50% { border-radius: 50% 50% 45% 55% / 55% 45% 55% 45%; }
+            75% { border-radius: 45% 50% 55% 45% / 50% 55% 45% 50%; }
+        }
+
+        .member-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 50px rgba(255, 149, 0, 0.5);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-info h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: 0.95rem;
+            color: #ff9500;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: #000;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 20px 10px;
+            height: 510px;
+        }
+
+        .footer-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+        }
+
+        .tagline {
+            color: #8e96a3;
+            font-size: 13px;
+            margin-top: 8px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .footer-section h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-section a {
+            color: #b0b8c1;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff9500;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            color: #999;
+            font-size: 13px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== MODAL ===== */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .modal-content h2 {
+            font-size: 1.8rem;
+            color: #ff9500;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .modal-content p {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .modal-close-btn {
+            background: #ff9500;
+            color: #fff;
+            border: none;
+            padding: 0.7rem 2rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close-btn:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
         }
 
         /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+        @media (max-width: 1200px) {
+            .insights-cards {
+                grid-template-columns: repeat(2, 1fr);
             }
-
-            .hero h1 {
-                font-size: 2.5rem;
+            .focus-content h2 {
+                font-size: 2.8rem;
             }
+        }
 
-            .hero p {
-                font-size: 1.1rem;
+        @media (max-width: 1024px) {
+            nav {
+                height: 55px;
+                padding: 0 1.5rem;
             }
-
-            .quantum-header h2 {
-                font-size: 2rem;
+            .nav-logo img {
+                height: 40px;
             }
-
-            .quantum-cards {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-
-            .section-wrapper,
-            .focus-wrapper {
+            .section-wrapper {
                 grid-template-columns: 1fr;
                 gap: 2rem;
             }
+            .data-visual {
+                padding: 0 1rem;
+            }
+            .data-visual img {
+                width: 100%;
+                max-width: 100%;
+            }
+            .data-content {
+                padding: 2rem 1.5rem;
+            }
+            .data-content h2 {
+                font-size: 2.2rem;
+            }
+            .focus-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .focus-visual {
+                order: -1;
+            }
+            .focus-visual video {
+                max-width: 100%;
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-grid .team-member:nth-child(1) {
+                grid-column: 1 / -1;
+            }
+            .quantum-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .insights-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }
 
-            .data-content h2,
-            .focus-content h2 {
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+                height: 55px;
+            }
+            .nav-logo img {
+                height: 38px;
+            }
+            .nav-center {
+                position: fixed;
+                top: 55px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 55px);
+                background: rgba(10, 25, 47, 0.95);
+                backdrop-filter: blur(30px) saturate(180%);
+                -webkit-backdrop-filter: blur(30px) saturate(180%);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 2rem 1.5rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                margin: 0;
+                overflow-y: auto;
+            }
+            .nav-center.active {
+                left: 0;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem;
+            }
+            .nav-right {
+                position: fixed;
+                bottom: 2rem;
+                left: 1.5rem;
+                right: 1.5rem;
+                flex-direction: column;
+                gap: 0.8rem;
+                z-index: 1001;
+            }
+            .nav-right.active {
+                display: flex;
+            }
+            .nav-right:not(.active) {
+                display: none;
+            }
+            .nav-login {
+                text-align: center;
+                font-size: 1rem;
+                padding: 0.5rem;
+            }
+            .nav-demo {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.95rem;
+                width: 100%;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            .btn-primary, .btn-secondary {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.95rem;
+            }
+            .quantum-section {
+                padding: 60px 20px;
+            }
+            .quantum-header {
+                margin-bottom: 50px;
+            }
+            .quantum-header h7 {
+                font-size: 0.75rem;
+            }
+            .quantum-header h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+            .quantum-header p {
+                font-size: 1rem;
+            }
+            .quantum-cards {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            .card-image {
+                height: 220px;
+            }
+            .card-content {
+                padding: 24px 20px;
+            }
+            .card-quote {
+                font-size: 0.95rem;
+            }
+            .card-source {
+                font-size: 0.85rem;
+            }
+            .data-section {
+                padding: 3rem 0;
+                min-height: auto;
+            }
+            .data-visual {
+                padding: 0;
+            }
+            .data-visual img {
+                width: 100%;
+                max-width: 100%;
+            }
+            .data-content {
+                padding: 2rem 1.5rem;
+            }
+            .data-content h2 {
                 font-size: 1.8rem;
             }
-
-            .platform-header h1 {
+            .data-content p {
+                font-size: 0.95rem;
+            }
+            .data-bullets li {
+                font-size: 0.9rem;
+                gap: 0.8rem;
+            }
+            .focus-section {
+                padding: 60px 20px;
+            }
+            .focus-content h2 {
                 font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            .focus-features li {
+                font-size: 0.95rem;
+                padding: 10px 0;
+                padding-left: 15px;
+            }
+            .mission-section {
+                padding: 80px 20px 60px;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            .section-header p {
+                font-size: 1rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .right-col {
+                width: 100%;
+                flex-direction: row;
+                gap: 10px;
+            }
+            .square {
+                width: calc((100% - 20px) / 3);
+                height: auto;
+                aspect-ratio: 1;
+            }
+            .left-card {
+                height: 350px;
+            }
+            .left-info {
+                left: 15px;
+                bottom: 15px;
+                padding: 12px 14px;
+                max-width: calc(100% - 30px);
+            }
+            .left-info h3 {
+                font-size: 0.9rem;
+            }
+            .left-info p {
+                font-size: 0.8rem;
+            }
+            .overlay h6 {
+                font-size: 0.7rem;
+            }
+            .footer-tagline {
+                font-size: 0.85rem;
+                padding: 0 1rem;
+            }
+            .insights-section {
+                padding: 60px 20px;
+            }
+            .insights-header {
+                margin-bottom: 50px;
+            }
+            .insights-header h1 {
+                font-size: 2.2rem;
+            }
+            .insights-header p {
+                font-size: 1rem;
+            }
+            .insights-cards {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .insight-card .card-image {
+                height: 180px;
+            }
+            .insight-card .card-content {
+                padding: 20px 18px;
+            }
+            .card-title {
+                font-size: 1rem;
+            }
+            .card-description {
+                font-size: 0.85rem;
+            }
+            .team-section {
+                padding: 60px 20px 40px;
+            }
+            .team-header h2 {
+                font-size: 2rem;
+            }
+            .team-header p {
+                font-size: 1rem;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .team-grid .team-member:nth-child(1) {
+                grid-column: 1;
+            }
+            .member-image-wrapper {
+                width: 140px;
+                height: 140px;
+            }
+            .member-info h3 {
+                font-size: 1.2rem;
+            }
+            .member-role {
+                font-size: 0.85rem;
+            }
+            .footer {
+                padding: 40px 20px 30px;
+            }
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .footer-logo img {
+                height: 60px;
+            }
+            .footer-bottom {
+                font-size: 12px;
+            }
+            .modal-content {
+                padding: 30px 20px;
+                margin: 0 20px;
+            }
+            .modal-content h2 {
+                font-size: 1.5rem;
+            }
+            .modal-content p {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .hero-buttons {
+                gap: 1rem;
+            }
+            .btn-primary, .btn-secondary {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+            }
+            .quantum-header h2 {
+                font-size: 1.6rem;
+            }
+            .data-content h2 {
+                font-size: 1.5rem;
+            }
+            .focus-content h2 {
+                font-size: 1.6rem;
+            }
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            .insights-header h1 {
+                font-size: 1.8rem;
+            }
+            .team-header h2 {
+                font-size: 1.6rem;
+            }
+            .member-image-wrapper {
+                width: 120px;
+                height: 120px;
+            }
+            .square {
+                border-radius: 8px;
+            }
+            .left-card {
+                height: 280px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .nav-logo img {
+                height: 35px;
+            }
+            .quantum-section,
+            .focus-section,
+            .insights-section,
+            .mission-section,
+            .team-section {
+                padding-left: 15px;
+                padding-right: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav>
-        <div class="nav-logo">HELIOUS AI</div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#solutions">Solutions</a></li>
-            <li><a href="#technology">Technology</a></li>
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="nav-demo">Get in Touch</button>
+        <div class="nav-logo">
+            <img src="logo.png" alt="HeliousAI Logo">
+        </div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-center">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#solutions" onclick="closeMenu()">Solutions</a></li>
+                <li><a href="roadmap.html" onclick="closeMenu()">Technology</a></li>
+                <li><a href="#mission" onclick="closeMenu()">Mission</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="#login" class="nav-login"></a>
+            <button class="nav-demo">Get in Touch</button>
+        </div>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline>
-            <source src="bg1.mp4" type="video/mp4">
+            <source src="hrto-bg-vid.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
             <h1>See Through The <span class="highlight">Noise</span><br>Real-Time AI Defense Clarity</h1>
             <p>Field-validated, canopy-penetrating AI for tactical advantage in complex terrain</p>
-            <div class="hero-buttons">
-                <button class="btn-primary">See Live Demo</button>
-                <button class="btn-secondary">Contact Us</button>
-            </div>
+            <div class="hero-buttons"></div>
         </div>
     </section>
 
-    <!-- QUANTUM THREAT SECTION -->
     <section class="quantum-section">
         <div class="quantum-container">
             <div class="quantum-header">
-                <h7> WHY NOW </h7>
-                <h2>Why Next-Generation AI Imaging Is Critical for Modern Defense Missions</h2>
-                <p>Increasingly, threats on the battlefield are concealed—hidden by dense terrain, camouflage, and unpredictable conditions. Conventional surveillance and imaging tools often fail to uncover dangers, leaving troops and assets exposed. There is a vital need for advanced airborne optical sectioning and real-time AI detection to reveal, classify, and respond to threats before they escalate—saving lives and ensuring mission success.</p>
+                <h7>WHY NOW</h7>
+                <h2>Tactical Clarity Over Concealment</h2>
+                <p>The real threat for our forces doesn't come from what's visible, it comes from what remains hidden. Dense canopy, rough terrain, urban clutter, and enemy camouflage routinely defeat conventional surveillance, leaving even advanced platforms struggling to identify real risks. Classic sensors create a wall of surface-level thermal "noise," letting mission-critical dangers go undetected.</p>
             </div>
-
             <div class="quantum-cards">
-                <!-- Card 1 -->
                 <div class="quantum-card">
                     <div class="card-image">
-                        <img src="1b.jpeg" alt="White House">
+                        <img src="1b.jpeg" alt="Defense Analysis">
                     </div>
                     <div class="card-content">
-                        <p class="card-quote">"Global military reports indicate a 67% increase in undetected threats due to foliage, terrain complexity, and urban concealment since 2021."</p>
-                        <p class="card-source"><a href="#">World Defense Analysis</a> | MJune 2024</p>
+                        <p class="card-quote">"It is still difficult to detect targets hidden inside vegetation, mainly owing to low detection and high false alarm, especially in dense foliage/vegetated terrain."</p>
+                        <p class="card-source"><a href="https://www.sdms.afrl.af.mil/content/challenge_areas/documents/A_challenge_problem_for_detection_of_targets_in_foliage.pdf" target="_blank">A Comprehensive Review on Foliage Penetration Radar</a> | 2021</p>
                     </div>
                 </div>
-
-                <!-- Card 2 -->
                 <div class="quantum-card">
                     <div class="card-image">
-                        <img src="2A.jpeg" alt="Quantum Computer">
+                        <img src="2A.jpeg" alt="Technical Journal">
                     </div>
                     <div class="card-content">
-                        <p class="card-quote">"Legacy thermal and optical systems suffer from high false positive rates and limited penetration in jungle or forest environments."</p>
-                        <p class="card-source"><a href="#">Military Technical Journal</a> | February 2023</p>
+                        <p class="card-quote">"Tree canopy limits animal detection in wildlife surveys with a thermal drone. Detectability is proportional to the percentage of ground visible from the air.”</p>
+                        <p class="card-source"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1574954123004089" target="_blank"> Estimating ground surface visibility on thermal images</a>|2023</p>
                     </div>
                 </div>
-
-                <!-- Card 3 -->
                 <div class="quantum-card">
                     <div class="card-image">
-                        <img src="3A.jpeg" alt="MIT Technology Review">
+                        <img src="3A.jpeg" alt="Defense Review">
                     </div>
                     <div class="card-content">
-                        <p class="card-quote">"Adoption of AI-powered multi-layer imaging is now seen as essential to troop safety and rapid mission response worldwide."</p>
-                        <p class="card-source"><a href="#">International Defense Review</a> | October 2025</p>
+                        <p class="card-quote">"Target camouflage, decoys, and natural concealment continuously degrade the performance of traditional EO/thermal imaging, requiring fusion of multiple sensor modalities to achieve robust detection."</p>
+                        <p class="card-source"><a href="https://mssdefence.com/blog/modern-camouflage-vs-detection-24-tactical-questions-answered/" target="_blank">DARPA Defense Sciences: Combatting Camouflage</a> | 2019</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DATA SECTION -->
     <section class="data-section">
         <div class="section-wrapper">
             <div class="data-visual">
-                <img src="sideimage2.jpg" alt="AOS Defense Technology">
+                <img src="leftsection3.png" alt="AOS Technology">
             </div>
             <div class="data-content">
                 <h2>The Most Valuable Data for Mission-Critical Defense</h2>
-                <p>Advanced AI Optical System (AOS) delivers unprecedented tactical clarity through complex terrain where concealment was once an advantage.</p>
+                <p>Advanced AI Optical System delivers unprecedented tactical clarity through complex terrain where concealment was once an advantage.</p>
                 <ul class="data-bullets">
                     <li>3X better detection in dense vegetation and complex terrain</li>
                     <li>AI-driven threat recognition and tactical analysis</li>
                     <li>Field-validated across Indian defense operations</li>
                     <li>Real-time decision support for command centers</li>
                 </ul>
-                <a href="#" class="learn-more">Learn More</a>
             </div>
         </div>
     </section>
 
-    <!-- TECHNOLOGY SECTION -->
     <section class="focus-section">
         <div class="focus-wrapper">
             <div class="focus-content">
@@ -644,7 +1553,6 @@
                     <li>Advanced encryption and secure communications</li>
                     <li>Continuous field learning and adaptation</li>
                 </ul>
-                <a href="#" class="learn-more">Learn More</a>
             </div>
             <div class="focus-visual">
                 <video autoplay muted loop playsinline>
@@ -654,26 +1562,316 @@
         </div>
     </section>
 
-    <!-- PLATFORM SECTION -->
-    <section class="platform-section">
-        <div class="container">
-            <div class="platform-header">
-                <div class="badge">Helious™ Platform</div>
-                <h1>The World's First Integrated<br>Defense AI Imaging Platform</h1>
-                <p class="subtitle">
-                    Aggregate multi-perspective aerial imaging, real-time airborne optical sectioning (AOS), and powerful AI object classification in one deployable solution.
-                </p>
-                <p class="subtitle">
-                    Unlock tactical clarity and life-saving detection with Helious™. Seamlessly integrates with drones, helicopters, and ground platforms. Delivers real-time, multi-layer signal reconstruction to see through foliage, camouflage, and complex terrain. Strengthen and elevate your defense intelligence infrastructure like never before with Helious™
-                </p>
+    <section class="mission-section">
+        <div class="mission-wrap">
+            <div class="section-header">
+                <h2>Are You Mission-Ready?</h2>
+                <p>In dense, unpredictable environments, success depends on uncovering the unseen. HeliousAI empowers your team to detect, plan, and act real time, anywhere.</p>
             </div>
+            <div class="grid">
+                <div class="left-card" id="mainCard" data-video="Create_a_1215_202511131813_izvlw.mp4" data-title="Penetrating Foliage with Optical Sectioning" data-desc="HeliousAI's airborne optical sectioning (AOS) reveals the previously invisible, extracting actionable intelligence through dense forest canopies." data-label="Optical Sectioning" onclick="switchVideo(this)">
+                    <video autoplay loop muted playsinline>
+                        <source src="Create_a_1215_202511131813_izvlw.mp4" type="video/mp4">
+                    </video>
+                    <div class="left-info">
+                        <h3>Penetrating Foliage with Optical Sectioning</h3>
+                        <p>HeliousAI's airborne optical sectioning (AOS) reveals the previously invisible, extracting actionable intelligence through dense forest canopies.</p>
+                    </div>
+                </div>
+                <div class="right-col" id="rightCol">
+                    <div class="square" data-video="Create_a_short_202511131557 (1)-vmake.mp4" data-title="E-AOS Imaging Module" data-desc="Advanced imaging technology that captures thermal signatures through dense vegetation, providing unparalleled visibility in challenging environments." data-label="E-AOS Imaging Module" onclick="switchVideo(this)">
+                        <video autoplay loop muted playsinline>
+                            <source src="Create_a_short_202511131557 (1)-vmake.mp4" type="video/mp4">
+                        </video>
+                        <div class="overlay">
+                            <h6>E-AOS Imaging Module</h6>
+                        </div>
+                    </div>
+                    <div class="square" data-video="canopy2.mp4" data-title="Helious VTOL Drone" data-desc="Vertical take-off and landing drone platform designed for tactical surveillance missions in dense terrain and urban environments." data-label="Helious VTOL Drone" onclick="switchVideo(this)">
+                        <video autoplay loop muted playsinline>
+                            <source src="canopy2.mp4" type="video/mp4">
+                        </video>
+                        <div class="overlay">
+                            <h6>Helious VTOL Drone</h6>
+                        </div>
+                    </div>
+                    <div class="square" data-video="3_eaos_software_202511131554 (1).mp4" data-title="Indigenous Upgrade" data-desc="Fully indigenous AI-powered software suite for real-time threat detection, classification, and tactical decision support systems." data-label="Indigenous Upgrade" onclick="switchVideo(this)">
+                        <video autoplay loop muted playsinline>
+                            <source src="3_eaos_software_202511131554 (1).mp4" type="video/mp4">
+                        </video>
+                        <div class="overlay">
+                            <h6>Indigenous Upgrade</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-tagline">"Every mission, every platform. HeliousAI turns the unseen into operational certainty."</div>
+        </div>
+    </section>
 
-            <div class="platform-container">
-                <div class="image-placeholder">
-                    <img src="Design_a_sleek_202511120530 (1).jpeg" alt="Helious Platform Diagram">
+    <section class="insights-section">
+        <div class="insights-container">
+            <div class="insights-header">
+                <h1>The Physics of Advantage</h1>
+                <p>Beyond Conventional Imaging: Standard thermal cameras see only a "thermal blanket" created by the canopy. E-AOS treats the environment as a 4D thermal light field, capturing thousands of images from different perspectives to computationally distinguish ground targets from occluding foliage.</p>
+            </div>
+            <div class="insights-cards">
+                <div class="insight-card">
+                    <div class="card-image">
+                        <img src="physics1.png" alt="Smart Flight">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tag">01</div>
+                        <div class="card-title">Smart Flight Patterns</div>
+                        <div class="card-description">A UAV flies optimized trajectories to create a large 'synthetic aperture'. This captures maximum angular diversity to see through small gaps in the foliage.</div>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="card-image">
+                        <img src="physics2.jpg" alt="Reconstruction">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tag">02</div>
+                        <div class="card-title">Multi-Layer Reconstruction</div>
+                        <div class="card-description">Our algorithms process thousands of high-precision geotagged thermal images to separate the thermal signatures of the canopy, mid-layer, and the ground.</div>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="card-image">
+                        <img src="3rdphys.png" alt="Signal Integration">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tag">03</div>
+                        <div class="card-title">Signal vs Noise Integration</div>
+                        <div class="card-description">As thousands of images are layered, a static target on the ground appears in the same location, reinforcing its signal. The canopy fades into translucent noise.</div>
+                    </div>
+                </div>
+                <div class="insight-card">
+                    <div class="card-image">
+                        <img src="physics4.png" alt="Output">
+                    </div>
+                    <div class="card-content">
+                        <div class="card-tag">04</div>
+                        <div class="card-title">Actionable Output</div>
+                        <div class="card-description">The result is a single, clear 2D composite image of the ground, as if the foliage was never there. This foliage-penetrating view is delivered in near-real-time.</div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section class="team-section">
+        <div class="team-container">
+            <div class="team-header">
+                <h2>Meet the Team</h2>
+                <p>People behind HeliousAI who are dedicated to revolutionizing defense technology and saving lives.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image-wrapper">
+                        <div class="member-image">
+                            <img src="ravisir-removed.png" alt="Ravinder Pal">
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Ravinder Pal</h3>
+                        <div class="member-role">Chief Visionary Officer</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image-wrapper">
+                        <div class="member-image">
+                            <img src="prakhar-removedbg.png" alt="Prakhar Tripathi">
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Prakhar Tripathi</h3>
+                        <div class="member-role">Founder</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image-wrapper">
+                        <div class="member-image">
+                            <img src="tushar-removedbg.png" alt="Tushar Gothwal">
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Tushar Gothwal</h3>
+                        <div class="member-role">Co-founder</div>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image-wrapper">
+                        <div class="member-image">
+                            <img src="kritika.png" alt="Kritika Singh">
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>Kritika Singh</h3>
+                        <div class="member-role">Core Member</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-logo">
+            <img src="logo.png" alt="HeliousAI Logo">
+            <p class="tagline">Saving lives by eliminating uncertainty.</p>
+        </div>
+
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#solutions">Solutions</a></li>
+                    <li><a href="roadmap.html">Technology</a></li>
+                    <li><a href="#">Mission</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <ul>
+                    <li><a href="mailto:prakhar@heliousai.com">prakhar@heliousai.com</a></li>
+                    <li><a href="tel:+918800271854">+91 88002 71854</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h4>Follow Us</h4>
+                <ul>
+                    <li><a href="https://www.linkedin.com/company/heliousai" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://x.com/heliousai" target="_blank">Twitter / X</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2025 HeliousAI Pvt. Ltd. All rights reserved. A Make in India Initiative.
+        </div>
+    </footer>
+
+    <div id="comingSoonModal" class="modal">
+        <div class="modal-content">
+            <h2>Coming Soon!</h2>
+            <p>We're working on something amazing. Stay tuned!</p>
+            <button class="modal-close-btn" onclick="closeModal()">Got it!</button>
+        </div>
+    </div>
+
+    <script>
+        function switchVideo(clickedElement) {
+            const mainCard = document.getElementById('mainCard');
+            
+            // If main card is clicked, do nothing
+            if (clickedElement === mainCard) {
+                return;
+            }
+            
+            // Store main card data
+            const mainVideo = mainCard.getAttribute('data-video');
+            const mainTitle = mainCard.getAttribute('data-title');
+            const mainDesc = mainCard.getAttribute('data-desc');
+            const mainLabel = mainCard.getAttribute('data-label');
+            
+            // Store clicked element data
+            const clickedVideo = clickedElement.getAttribute('data-video');
+            const clickedTitle = clickedElement.getAttribute('data-title');
+            const clickedDesc = clickedElement.getAttribute('data-desc');
+            const clickedLabel = clickedElement.getAttribute('data-label');
+            
+            // Swap data attributes
+            mainCard.setAttribute('data-video', clickedVideo);
+            mainCard.setAttribute('data-title', clickedTitle);
+            mainCard.setAttribute('data-desc', clickedDesc);
+            mainCard.setAttribute('data-label', clickedLabel);
+            
+            clickedElement.setAttribute('data-video', mainVideo);
+            clickedElement.setAttribute('data-title', mainTitle);
+            clickedElement.setAttribute('data-desc', mainDesc);
+            clickedElement.setAttribute('data-label', mainLabel);
+            
+            // Update main card content with fade effect
+            const mainVideoElement = mainCard.querySelector('video');
+            const mainInfo = mainCard.querySelector('.left-info');
+            
+            mainVideoElement.style.opacity = '0';
+            setTimeout(() => {
+                mainVideoElement.querySelector('source').src = clickedVideo;
+                mainVideoElement.load();
+                mainVideoElement.play();
+                mainVideoElement.style.opacity = '1';
+                
+                mainInfo.innerHTML = `
+                    <h3>${clickedTitle}</h3>
+                    <p>${clickedDesc}</p>
+                `;
+            }, 300);
+            
+            // Update clicked element content
+            const clickedVideoElement = clickedElement.querySelector('video');
+            const clickedOverlay = clickedElement.querySelector('.overlay h6');
+            
+            clickedVideoElement.style.opacity = '0';
+            setTimeout(() => {
+                clickedVideoElement.querySelector('source').src = mainVideo;
+                clickedVideoElement.load();
+                clickedVideoElement.play();
+                clickedVideoElement.style.opacity = '1';
+                
+                clickedOverlay.textContent = mainLabel;
+            }, 300);
+        }
+
+        function toggleMenu() {
+            const navCenter = document.querySelector('.nav-center');
+            const navRight = document.querySelector('.nav-right');
+            const menuToggle = document.querySelector('.menu-toggle');
+            navCenter.classList.toggle('active');
+            navRight.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navCenter = document.querySelector('.nav-center');
+            const navRight = document.querySelector('.nav-right');
+            const menuToggle = document.querySelector('.menu-toggle');
+            navCenter.classList.remove('active');
+            navRight.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+
+        function closeModal() {
+            document.getElementById('comingSoonModal').classList.remove('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const solutionsLink = document.querySelector('a[href="#solutions"]');
+            if (solutionsLink) {
+                solutionsLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.getElementById('comingSoonModal').classList.add('active');
+                });
+            }
+
+            document.getElementById('comingSoonModal').addEventListener('click', function(e) {
+                if (e.target === this) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const navCenter = document.querySelector('.nav-center');
+                
+                if (!nav.contains(e.target) && navCenter.classList.contains('active')) {
+                    closeMenu();
+                }
+            });
+        });
+    </script>
 </body>
 </html>

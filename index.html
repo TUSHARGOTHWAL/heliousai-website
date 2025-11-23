@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,10 +12,17 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
             overflow-x: hidden;
             background: #fff;
+            width: 100%;
+            max-width: 100vw;
         }
 
         /* ===== NAVIGATION ===== */
@@ -23,47 +31,84 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 100px;
+            height: 75px;
             z-index: 1000;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem 1.5rem;
-            background: rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0 10.5rem;
+            background: rgba(60, 61, 63, 0.7);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
 
         .nav-logo {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 700;
             color: #fff;
             letter-spacing: 1px;
+            z-index: 1001;
+            flex-shrink: 0;
         }
 
         .nav-logo img {
-            height: 100px;
+            height: 80px;
             width: auto;
             object-fit: contain;
+        }
+
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 5rem;
+            flex: 1;
+            justify-content: center;
+            margin: 0 1.5rem;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
             align-items: center;
+            margin: 0;
+            padding: 0;
         }
 
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 0.95rem;
+            font-size: 0.875rem;
             font-weight: 500;
             transition: color 0.3s ease;
             cursor: pointer;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
+            color: #ff9500;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .nav-login {
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-login:hover {
             color: #ff9500;
         }
 
@@ -71,31 +116,58 @@
             background: #ff9500;
             color: #fff;
             border: none;
-            padding: 0.7rem 1.8rem;
-            border-radius: 4px;
-            font-size: 0.95rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 5px;
+            font-size: 0.875rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(255, 149, 0, 0.3);
+            white-space: nowrap;
         }
 
         .nav-demo:hover {
             background: #ff8c00;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 149, 0, 0.5);
+            transform: translateY(-1px);
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
         }
 
         /* ===== HERO SECTION ===== */
         .hero {
-          position: relative;
-          width: 100%;
-          height: 100vh;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          overflow: hidden;
-          background: #fff;
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #fff;
         }
 
         .hero-video {
@@ -196,14 +268,17 @@
 
         /* ===== QUANTUM THREAT SECTION ===== */
         .quantum-section {
-          width: 100%;
-          padding: 100px 40px;
-          background: #fff;
+            width: 100%;
+            max-width: 100vw;
+            padding: 100px 40px;
+            background: #fff;
+            overflow: hidden;
         }
 
         .quantum-container {
             max-width: 1400px;
             margin: 0 auto;
+            width: 100%;
         }
 
         .quantum-header {
@@ -305,6 +380,7 @@
         /* ===== DATA SECTION ===== */
         .data-section {
             width: 100%;
+            max-width: 100vw;
             padding: 4rem 0;
             background: #ffffff;
             display: flex;
@@ -312,10 +388,12 @@
             justify-content: flex-start;
             min-height: 100vh;
             position: relative;
+            overflow: hidden;
         }
 
         .section-wrapper {
             width: 100%;
+            max-width: 100%;
             display: grid;
             grid-template-columns: 55% 45%;
             gap: 0;
@@ -338,6 +416,7 @@
             border-radius: 0;
             box-shadow: none;
             object-fit: contain;
+            max-width: 100%;
         }
 
         .data-content {
@@ -387,77 +466,17 @@
             flex-shrink: 0;
         }
 
-        .learn-more {
-            display: none;
-            align-items: center;
-            gap: 0.8rem;
-            color: #ff9500;
-            text-decoration: none;
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-top: 1.5rem;
-            width: fit-content;
-        }
-
-        .learn-more::after {
-            content: '→';
-        }
-
-        .learn-more:hover {
-            color: #ff8c00;
-        }
-
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .section-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .data-visual {
-                min-height: 400px;
-            }
-
-            .data-content {
-                padding: 3rem 2rem;
-            }
-
-            .data-content h2 {
-                font-size: 2.5rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .data-section {
-                padding: 3rem 0;
-                min-height: auto;
-            }
-
-            .data-content {
-                padding: 2rem 1.5rem;
-            }
-
-            .data-content h2 {
-                font-size: 2rem;
-            }
-
-            .data-content p {
-                font-size: 1rem;
-            }
-
-            .data-bullets li {
-                font-size: 0.95rem;
-            }
-        }
-
-        /* ===== FOCUS SECTION (NEW FEATURES STYLE) ===== */
+        /* ===== FOCUS SECTION ===== */
         .focus-section {
-          width: 100%;
-          padding: 100px 40px;
-          background: #0a0a0a;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          min-height: 100vh;
+            width: 100%;
+            max-width: 100vw;
+            padding: 100px 40px;
+            background: #0a0a0a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden;
         }
 
         .focus-wrapper {
@@ -502,11 +521,8 @@
 
         .focus-features li:hover {
             border-left-color: #ff9500;
-            background: transparent;
-            padding-left: 12px;
         }
 
-        /* Animated vertical line */
         .focus-features li::before {
             content: '';
             position: absolute;
@@ -519,65 +535,19 @@
             animation-fill-mode: forwards;
         }
 
-        .focus-features li:nth-child(1)::before {
-            animation: loadLine1 12s ease-in-out infinite;
-        }
+        .focus-features li:nth-child(1)::before { animation: loadLine1 12s ease-in-out infinite; }
+        .focus-features li:nth-child(2)::before { animation: loadLine2 12s ease-in-out infinite; }
+        .focus-features li:nth-child(3)::before { animation: loadLine3 12s ease-in-out infinite; }
+        .focus-features li:nth-child(4)::before { animation: loadLine4 12s ease-in-out infinite; }
+        .focus-features li:nth-child(5)::before { animation: loadLine5 12s ease-in-out infinite; }
+        .focus-features li:nth-child(6)::before { animation: loadLine6 12s ease-in-out infinite; }
 
-        .focus-features li:nth-child(2)::before {
-            animation: loadLine2 12s ease-in-out infinite;
-        }
-
-        .focus-features li:nth-child(3)::before {
-            animation: loadLine3 12s ease-in-out infinite;
-        }
-
-        .focus-features li:nth-child(4)::before {
-            animation: loadLine4 12s ease-in-out infinite;
-        }
-
-        .focus-features li:nth-child(5)::before {
-            animation: loadLine5 12s ease-in-out infinite;
-        }
-
-        .focus-features li:nth-child(6)::before {
-            animation: loadLine6 12s ease-in-out infinite;
-        }
-
-        /* Animation keyframes for each line */
-        @keyframes loadLine1 {
-            0%, 8% { opacity: 0; }
-            8%, 20% { opacity: 1; }
-            20%, 100% { opacity: 1; }
-        }
-
-        @keyframes loadLine2 {
-            0%, 24% { opacity: 0; }
-            24%, 36% { opacity: 1; }
-            36%, 100% { opacity: 1; }
-        }
-
-        @keyframes loadLine3 {
-            0%, 40% { opacity: 0; }
-            40%, 52% { opacity: 1; }
-            52%, 100% { opacity: 1; }
-        }
-
-        @keyframes loadLine4 {
-            0%, 56% { opacity: 0; }
-            56%, 68% { opacity: 1; }
-            68%, 100% { opacity: 1; }
-        }
-
-        @keyframes loadLine5 {
-            0%, 72% { opacity: 0; }
-            72%, 84% { opacity: 1; }
-            84%, 100% { opacity: 1; }
-        }
-
-        @keyframes loadLine6 {
-            0%, 88% { opacity: 0; }
-            88%, 100% { opacity: 1; }
-        }
+        @keyframes loadLine1 { 0%, 8% { opacity: 0; } 8%, 100% { opacity: 1; } }
+        @keyframes loadLine2 { 0%, 24% { opacity: 0; } 24%, 100% { opacity: 1; } }
+        @keyframes loadLine3 { 0%, 40% { opacity: 0; } 40%, 100% { opacity: 1; } }
+        @keyframes loadLine4 { 0%, 56% { opacity: 0; } 56%, 100% { opacity: 1; } }
+        @keyframes loadLine5 { 0%, 72% { opacity: 0; } 72%, 100% { opacity: 1; } }
+        @keyframes loadLine6 { 0%, 88% { opacity: 0; } 88%, 100% { opacity: 1; } }
 
         .focus-visual video {
             width: 100%;
@@ -586,154 +556,13 @@
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
         }
 
-        /* ===== PLATFORM SECTION ===== */
-        .platform-section {
-            background: #000;
-            color: #fff;
-            padding: 80px 40px 140px 40px;
-        }
-
-        .container {
-            max-width: 1300px;
-            margin: 0 auto;
-        }
-
-        .platform-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .badge {
-            display: inline-block;
-            border: 1px solid #ff4444;
-            color: #ff4444;
-            padding: 6px 14px;
-            border-radius: 16px;
-            font-size: 10px;
-            letter-spacing: 1.5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
-
-        .platform-header h1 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
-
-        .subtitle {
-            color: #999;
-            font-size: 0.9rem;
-            line-height: 1.5;
-            max-width: 650px;
-            margin: 0 auto 15px;
-        }
-
-        .platform-container {
-            background: transparent;
-            border-radius: 0;
-            padding: 0;
-            box-shadow: none;
-            border: none;
-        }
-
-        .image-placeholder {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .image-placeholder img {
-            max-width: 90%;
-            height: auto;
-            border-radius: 0;
-            display: block;
-        }
-
-        /* ===== PARTNERS TRANSITION SECTION ===== */
-        .partners-section {
-            width: 100%;
-            padding: 0 40px;
-            background: transparent;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            z-index: 100;
-            margin: -100px 0 0 0;
-        }
-
-        .partners-card {
-            background: #ffffff;
-            border-radius: 20px;
-            padding: 40px 50px;
-            box-shadow: 0 12px 48px rgba(0, 0, 0, 0.12);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            max-width: 1200px;
-            width: 100%;
-        }
-
-        .partners-container {
-            width: 100%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 50px;
-            align-items: center;
-        }
-
-        .partner-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 18px;
-            text-align: center;
-        }
-
-        .partner-logos {
-            display: flex;
-            gap: 12px;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .logo-placeholder {
-            width: 56px;
-            height: 56px;
-            background: #e8e8e8;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 10px;
-            color: #999;
-            font-weight: 700;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-        }
-
-        .logo-text {
-            font-size: 10px;
-            color: #000000;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-        }
-
-        .partner-description {
-            font-size: 0.85rem;
-            color: #000000;
-            line-height: 1.5;
-            font-style: italic;
-            font-weight: 400;
-            max-width: 200px;
-        }
-
         /* ===== MISSION READY SECTION ===== */
         .mission-section {
             background: #ffffff;
             color: #000;
             padding: 120px 40px 80px 40px;
+            max-width: 100vw;
+            overflow: hidden;
         }
 
         .mission-wrap {
@@ -784,6 +613,13 @@
             position: relative;
             background: #222;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .square:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(255, 149, 0, 0.4);
         }
 
         .square video {
@@ -791,6 +627,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: opacity 0.3s ease;
         }
 
         .square .overlay {
@@ -815,6 +652,13 @@
             background: #111;
             position: relative;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .left-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 35px rgba(255, 149, 0, 0.3);
         }
 
         .left-card video {
@@ -822,6 +666,7 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            transition: opacity 0.3s ease;
         }
 
         .left-info {
@@ -855,15 +700,17 @@
             line-height: 1.3rem;
         }
 
-        /* ===== PHYSICS OF ADVANTAGE SECTION ===== */
+        /* ===== PHYSICS SECTION ===== */
         .insights-section {
             width: 100%;
+            max-width: 100vw;
             padding: 100px 40px;
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
+            overflow: hidden;
         }
 
         .insights-container {
@@ -922,12 +769,6 @@
             justify-content: center;
         }
 
-        .insight-card .card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .insight-card .card-content {
             padding: 28px 24px;
             flex: 1;
@@ -961,17 +802,16 @@
         /* ===== TEAM SECTION ===== */
         .team-section {
             width: 100%;
+            max-width: 100vw;
             padding: 100px 40px 40px 40px;
             background: #ffffff;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: auto;
+            overflow: hidden;
         }
 
         .team-container {
             max-width: 1400px;
             width: 100%;
+            margin: 0 auto;
         }
 
         .team-header {
@@ -1008,24 +848,6 @@
             grid-column: 1 / -1;
             justify-self: center;
             max-width: 250px;
-        }
-
-        .team-grid .team-member:nth-child(1) .member-description {
-            font-size: 0.8rem;
-            white-space: nowrap;
-        }
-
-        .team-grid .team-member:nth-child(2),
-        .team-grid .team-member:nth-child(3),
-        .team-grid .team-member:nth-child(4) {
-            grid-column: auto;
-        }
-
-        .team-grid .team-member:nth-child(2) .member-description,
-        .team-grid .team-member:nth-child(3) .member-description,
-        .team-grid .team-member:nth-child(4) .member-description {
-            font-size: 0.75rem;
-            white-space: nowrap;
         }
 
         .team-member {
@@ -1090,113 +912,28 @@
             text-transform: uppercase;
         }
 
-        .member-description {
-            font-size: 0.9rem;
-            color: #666;
-            line-height: 1.6;
-            font-weight: 400;
-        }
-
-        /* ===== MISSION/CONTACT SECTION ===== */
-        .mission-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 80px 40px 40px 40px;
-            text-align: center;
-            background: linear-gradient(135deg, rgba(15, 15, 15, 0.95) 0%, rgba(25, 25, 35, 0.95) 100%), url('footer.jpg') center/cover no-repeat;
-            min-height: auto;
-            position: relative;
-        }
-
-        .mission-header {
-            margin-bottom: 30px;
-        }
-
-        .mission-header h1 {
-            font-size: 48px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 24px;
-            letter-spacing: -0.5px;
-        }
-
-        .mission-header p {
-            font-size: 16px;
-            color: #e0e0e0;
-            max-width: 600px;
-            line-height: 1.6;
-            margin: 0 auto;
-        }
-
-        .cards-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 24px;
-            max-width: 1200px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .card {
-            background: rgba(20, 20, 30, 0.85);
-            border: 1px solid rgba(255, 149, 0, 0.3);
-            border-radius: 12px;
-            padding: 40px 30px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        .card:hover {
-            border-color: rgba(255, 149, 0, 0.6);
-            transform: translateY(-5px);
-            background: rgba(20, 20, 30, 0.95);
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            margin: 0 auto 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid rgba(255, 149, 0, 0.4);
-            border-radius: 50%;
-            font-size: 28px;
-        }
-
-        .card h3 {
-            font-size: 20px;
-            font-weight: 600;
-            color: white;
-            margin-bottom: 12px;
-        }
-
-        .card-desc {
-            font-size: 14px;
-            color: #d0d0d0;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-
-        .card-link {
-            color: #ff9500;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .card-link:hover {
-            color: #ffb033;
-        }
-
+        /* ===== FOOTER ===== */
         .footer {
             background: #000;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 60px 20px 40px;
+            padding: 40px 20px 10px;
+            height: 510px;
+        }
+
+        .footer-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo img {
+            height: 100px;
+            width: auto;
+        }
+
+        .tagline {
+            color: #8e96a3;
+            font-size: 13px;
+            margin-top: 8px;
         }
 
         .footer-content {
@@ -1206,10 +943,6 @@
             grid-template-columns: 1fr 1fr 1fr;
             gap: 60px;
             margin-bottom: 40px;
-            text-align: center;
-        }
-
-        .footer-section {
             text-align: center;
         }
 
@@ -1238,29 +971,7 @@
         }
 
         .footer-section a:hover {
-            color: #2ea8e5;
-        }
-
-        .footer-logo {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .logo-text {
-            font-size: 28px;
-            font-weight: 700;
-            color: white;
-            margin-bottom: 8px;
-        }
-
-        .logo-text span {
-            color: #f4a928;
-        }
-
-        .tagline {
-            color: #8e96a3;
-            font-size: 13px;
-            margin-top: 8px;
+            color: #ff9500;
         }
 
         .footer-bottom {
@@ -1295,6 +1006,7 @@
             border-radius: 12px;
             text-align: center;
             max-width: 400px;
+            width: 90%;
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
             animation: slideIn 0.3s ease;
         }
@@ -1346,80 +1058,392 @@
             .insights-cards {
                 grid-template-columns: repeat(2, 1fr);
             }
+            .focus-content h2 {
+                font-size: 2.8rem;
+            }
         }
 
         @media (max-width: 1024px) {
-            .team-grid {
+            nav {
+                height: 55px;
+                padding: 0 1.5rem;
+            }
+            .nav-logo img {
+                height: 40px;
+            }
+            .section-wrapper {
                 grid-template-columns: 1fr;
+                gap: 2rem;
             }
-
+            .data-visual {
+                padding: 0 1rem;
+            }
+            .data-visual img {
+                width: 100%;
+                max-width: 100%;
+            }
+            .data-content {
+                padding: 2rem 1.5rem;
+            }
+            .data-content h2 {
+                font-size: 2.2rem;
+            }
+            .focus-wrapper {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .focus-visual {
+                order: -1;
+            }
+            .focus-visual video {
+                max-width: 100%;
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .team-grid .team-member:nth-child(1) {
-                grid-column: 1;
+                grid-column: 1 / -1;
             }
-
-            .team-grid .team-member:nth-child(4) {
-                grid-column: 1;
+            .quantum-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+            .insights-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
             }
         }
 
         @media (max-width: 768px) {
+            nav {
+                padding: 0 1rem;
+                height: 55px;
+            }
+            .nav-logo img {
+                height: 38px;
+            }
+            .nav-center {
+                position: fixed;
+                top: 55px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 55px);
+                background: rgba(10, 25, 47, 0.95);
+                backdrop-filter: blur(30px) saturate(180%);
+                -webkit-backdrop-filter: blur(30px) saturate(180%);
+                flex-direction: column;
+                justify-content: flex-start;
+                padding: 2rem 1.5rem;
+                gap: 1.5rem;
+                transition: left 0.3s ease;
+                margin: 0;
+                overflow-y: auto;
+            }
+            .nav-center.active {
+                left: 0;
+            }
             .nav-links {
+                flex-direction: column;
+                gap: 1.5rem;
+                width: 100%;
+            }
+            .nav-links a {
+                font-size: 1.1rem;
+                width: 100%;
+                text-align: center;
+                padding: 0.5rem;
+            }
+            .nav-right {
+                position: fixed;
+                bottom: 2rem;
+                left: 1.5rem;
+                right: 1.5rem;
+                flex-direction: column;
+                gap: 0.8rem;
+                z-index: 1001;
+            }
+            .nav-right.active {
+                display: flex;
+            }
+            .nav-right:not(.active) {
                 display: none;
             }
+            .nav-login {
+                text-align: center;
+                font-size: 1rem;
+                padding: 0.5rem;
+            }
+            .nav-demo {
+                padding: 0.7rem 1.2rem;
+                font-size: 0.95rem;
+                width: 100%;
+            }
+            .menu-toggle {
+                display: flex;
+            }
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+                margin-bottom: 1rem;
+            }
+            .hero p {
+                font-size: 1rem;
+                margin-bottom: 2rem;
+            }
+            .btn-primary, .btn-secondary {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.95rem;
+            }
+            .quantum-section {
+                padding: 60px 20px;
+            }
+            .quantum-header {
+                margin-bottom: 50px;
+            }
+            .quantum-header h7 {
+                font-size: 0.75rem;
+            }
+            .quantum-header h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+            .quantum-header p {
+                font-size: 1rem;
             }
             .quantum-cards {
                 grid-template-columns: 1fr;
+                gap: 25px;
             }
-            .section-wrapper, .focus-wrapper {
-                grid-template-columns: 1fr;
+            .card-image {
+                height: 220px;
+            }
+            .card-content {
+                padding: 24px 20px;
+            }
+            .card-quote {
+                font-size: 0.95rem;
+            }
+            .card-source {
+                font-size: 0.85rem;
+            }
+            .data-section {
+                padding: 3rem 0;
+                min-height: auto;
+            }
+            .data-visual {
+                padding: 0;
+            }
+            .data-visual img {
+                width: 100%;
+                max-width: 100%;
+            }
+            .data-content {
+                padding: 2rem 1.5rem;
+            }
+            .data-content h2 {
+                font-size: 1.8rem;
+            }
+            .data-content p {
+                font-size: 0.95rem;
+            }
+            .data-bullets li {
+                font-size: 0.9rem;
+                gap: 0.8rem;
+            }
+            .focus-section {
+                padding: 60px 20px;
+            }
+            .focus-content h2 {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+            .focus-features li {
+                font-size: 0.95rem;
+                padding: 10px 0;
+                padding-left: 15px;
+            }
+            .mission-section {
+                padding: 80px 20px 60px;
+            }
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            .section-header p {
+                font-size: 1rem;
             }
             .grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             .right-col {
                 width: 100%;
                 flex-direction: row;
+                gap: 10px;
             }
             .square {
                 width: calc((100% - 20px) / 3);
+                height: auto;
                 aspect-ratio: 1;
             }
-            .partners-container {
-                grid-template-columns: 1fr;
+            .left-card {
+                height: 350px;
+            }
+            .left-info {
+                left: 15px;
+                bottom: 15px;
+                padding: 12px 14px;
+                max-width: calc(100% - 30px);
+            }
+            .left-info h3 {
+                font-size: 0.9rem;
+            }
+            .left-info p {
+                font-size: 0.8rem;
+            }
+            .overlay h6 {
+                font-size: 0.7rem;
+            }
+            .footer-tagline {
+                font-size: 0.85rem;
+                padding: 0 1rem;
+            }
+            .insights-section {
+                padding: 60px 20px;
+            }
+            .insights-header {
+                margin-bottom: 50px;
+            }
+            .insights-header h1 {
+                font-size: 2.2rem;
+            }
+            .insights-header p {
+                font-size: 1rem;
             }
             .insights-cards {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .insight-card .card-image {
+                height: 180px;
+            }
+            .insight-card .card-content {
+                padding: 20px 18px;
+            }
+            .card-title {
+                font-size: 1rem;
+            }
+            .card-description {
+                font-size: 0.85rem;
+            }
+            .team-section {
+                padding: 60px 20px 40px;
+            }
+            .team-header h2 {
+                font-size: 2rem;
+            }
+            .team-header p {
+                font-size: 1rem;
             }
             .team-grid {
                 grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .team-grid .team-member:nth-child(1) {
+                grid-column: 1;
             }
             .member-image-wrapper {
-                width: 160px;
-                height: 160px;
+                width: 140px;
+                height: 140px;
             }
-
-            .mission-header h1 {
-                font-size: 36px;
+            .member-info h3 {
+                font-size: 1.2rem;
             }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
+            .member-role {
+                font-size: 0.85rem;
             }
-
+            .footer {
+                padding: 40px 20px 30px;
+            }
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
-
-            .focus-content h2 {
-                font-size: 2.2rem;
-                margin-bottom: 60px;
+            .footer-logo img {
+                height: 60px;
             }
+            .footer-bottom {
+                font-size: 12px;
+            }
+            .modal-content {
+                padding: 30px 20px;
+                margin: 0 20px;
+            }
+            .modal-content h2 {
+                font-size: 1.5rem;
+            }
+            .modal-content p {
+                font-size: 0.9rem;
+            }
+        }
 
-            .focus-features li {
-                font-size: 1rem;
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .hero p {
+                font-size: 0.9rem;
+            }
+            .hero-buttons {
+                gap: 1rem;
+            }
+            .btn-primary, .btn-secondary {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.85rem;
+            }
+            .quantum-header h2 {
+                font-size: 1.6rem;
+            }
+            .data-content h2 {
+                font-size: 1.5rem;
+            }
+            .focus-content h2 {
+                font-size: 1.6rem;
+            }
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            .insights-header h1 {
+                font-size: 1.8rem;
+            }
+            .team-header h2 {
+                font-size: 1.6rem;
+            }
+            .member-image-wrapper {
+                width: 120px;
+                height: 120px;
+            }
+            .square {
+                border-radius: 8px;
+            }
+            .left-card {
+                height: 280px;
+                border-radius: 10px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            .nav-logo img {
+                height: 35px;
+            }
+            .quantum-section,
+            .focus-section,
+            .insights-section,
+            .mission-section,
+            .team-section {
+                padding-left: 15px;
+                padding-right: 15px;
             }
         }
     </style>
@@ -1427,36 +1451,45 @@
 <body>
     <nav>
         <div class="nav-logo">
-            <img src="logo.png" alt="Company Logo">
+            <img src="logo.png" alt="HeliousAI Logo">
         </div>
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#solutions">Solutions</a></li>
-            <li><a href="roadmap.html">Technology</a></li>
-            <li><a href="#mission">Mission</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-        <button class="nav-demo">Get in Touch</button>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-center">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#about" onclick="closeMenu()">About</a></li>
+                <li><a href="#solutions" onclick="closeMenu()">Solutions</a></li>
+                <li><a href="roadmap.html" onclick="closeMenu()">Technology</a></li>
+                <li><a href="#mission" onclick="closeMenu()">Mission</a></li>
+                <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <a href="#login" class="nav-login"></a>
+            <button class="nav-demo">Get in Touch</button>
+        </div>
     </nav>
 
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline>
-            <source src="hero.mp4" type="video/mp4">
+            <source src="hrto-bg-vid.mp4" type="video/mp4">
         </video>
         <div class="hero-content">
             <h1>See Through The <span class="highlight">Noise</span><br>Real-Time AI Defense Clarity</h1>
             <p>Field-validated, canopy-penetrating AI for tactical advantage in complex terrain</p>
-            <div class="hero-buttons">
-            </div>
+            <div class="hero-buttons"></div>
         </div>
     </section>
 
     <section class="quantum-section">
         <div class="quantum-container">
             <div class="quantum-header">
-             <h7>WHY NOW</h7>
-             <h2>Tactical Clarity Over Concealment</h2>
-             <p>The real threat for our forces doesn't come from what's visible, it comes from what remains hidden. Dense canopy, rough terrain, urban clutter, and enemy camouflage routinely defeat conventional surveillance, leaving even advanced platforms struggling to identify real risks. Classic sensors create a wall of surface-level thermal "noise," letting mission-critical dangers go undetected.</p>
+                <h7>WHY NOW</h7>
+                <h2>Tactical Clarity Over Concealment</h2>
+                <p>The real threat for our forces doesn't come from what's visible, it comes from what remains hidden. Dense canopy, rough terrain, urban clutter, and enemy camouflage routinely defeat conventional surveillance, leaving even advanced platforms struggling to identify real risks. Classic sensors create a wall of surface-level thermal "noise," letting mission-critical dangers go undetected.</p>
             </div>
             <div class="quantum-cards">
                 <div class="quantum-card">
@@ -1465,7 +1498,7 @@
                     </div>
                     <div class="card-content">
                         <p class="card-quote">"It is still difficult to detect targets hidden inside vegetation, mainly owing to low detection and high false alarm, especially in dense foliage/vegetated terrain."</p>
-                        <p class="card-source"><a href="https://www.sdms.afrl.af.mil/content/challenge_areas/documents/A_challenge_problem_for_detection_of_targets_in_foliage.pdf  " target="_blank">A Comprehensive Review on Foliage Penetration Radar</a> | 2021</p>
+                        <p class="card-source"><a href="https://www.sdms.afrl.af.mil/content/challenge_areas/documents/A_challenge_problem_for_detection_of_targets_in_foliage.pdf" target="_blank">A Comprehensive Review on Foliage Penetration Radar</a> | 2021</p>
                     </div>
                 </div>
                 <div class="quantum-card">
@@ -1473,8 +1506,8 @@
                         <img src="2A.jpeg" alt="Technical Journal">
                     </div>
                     <div class="card-content">
-                        <p class="card-quote">"Conventional color and IR detection models have high false alarm rates. This is mainly because single-colour information is insufficient in most cases, especially in cluttered and dynamic backgrounds."</p>
-                        <p class="card-source"><a href="https://robocraze.com/blogs/post/ir-sensor-working/" target="_blank">Early Forest Fire Detection with Optical, IR & AI</a> | NIH/NLM</p>
+                        <p class="card-quote">"Tree canopy limits animal detection in wildlife surveys with a thermal drone. Detectability is proportional to the percentage of ground visible from the air.”</p>
+                        <p class="card-source"><a href="https://www.sciencedirect.com/science/article/abs/pii/S1574954123004089" target="_blank"> Estimating ground surface visibility on thermal images</a>|2023</p>
                     </div>
                 </div>
                 <div class="quantum-card">
@@ -1504,7 +1537,6 @@
                     <li>Field-validated across Indian defense operations</li>
                     <li>Real-time decision support for command centers</li>
                 </ul>
-                <a href="#" class="learn-more">Learn More</a>
             </div>
         </div>
     </section>
@@ -1530,54 +1562,6 @@
         </div>
     </section>
 
-    <!-- PLATFORM SECTION COMMENTED OUT
-    <section class="platform-section">
-        <div class="container">
-            <div class="platform-header">
-                <div class="badge">Helious™ Platform</div>
-                <h1>The World's First Integrated<br>Defense AI Imaging Platform</h1>
-                <p class="subtitle">Aggregate multi-perspective aerial imaging, real-time airborne optical sectioning, and powerful AI object classification in one deployable solution.</p>
-                <p class="subtitle">Unlock tactical clarity and life-saving detection with Helious™. Seamlessly integrates with drones, helicopters, and ground platforms. Delivers real-time, multi-layer signal reconstruction to see through foliage, camouflage, and complex terrain.</p>
-            </div>
-            <div class="platform-container">
-                <div class="image-placeholder">
-                    <img src="Design_a_modern_202511162107.jpeg" alt="Platform">
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
-
-    <!--
-    <section class="partners-section">
-        <div class="partners-card">
-            <div class="partners-container">
-                <div class="partner-item">
-                    <div class="partner-logos">
-                        <div class="logo-placeholder">P1</div>
-                    </div>
-                    <div class="logo-text"></div>
-                    <p class="partner-description">Proudly supported and recognized by leading organizations.</p>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-logos">
-                        <div class="logo-placeholder">P2</div>
-                    </div>
-                    <div class="logo-text"></div>
-                    <p class="partner-description">HOVERIT KAWA Pvt. Ltd.</p>
-                </div>
-                <div class="partner-item">
-                    <div class="partner-logos">
-                        <div class="logo-placeholder">P3</div>
-                    </div>
-                    <div class="logo-text"></div>
-                    <p class="partner-description">Custom UAV Solutions for defence forces</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    -->
-
     <section class="mission-section">
         <div class="mission-wrap">
             <div class="section-header">
@@ -1585,7 +1569,7 @@
                 <p>In dense, unpredictable environments, success depends on uncovering the unseen. HeliousAI empowers your team to detect, plan, and act real time, anywhere.</p>
             </div>
             <div class="grid">
-                <div class="left-card">
+                <div class="left-card" id="mainCard" data-video="Create_a_1215_202511131813_izvlw.mp4" data-title="Penetrating Foliage with Optical Sectioning" data-desc="HeliousAI's airborne optical sectioning (AOS) reveals the previously invisible, extracting actionable intelligence through dense forest canopies." data-label="Optical Sectioning" onclick="switchVideo(this)">
                     <video autoplay loop muted playsinline>
                         <source src="Create_a_1215_202511131813_izvlw.mp4" type="video/mp4">
                     </video>
@@ -1594,8 +1578,8 @@
                         <p>HeliousAI's airborne optical sectioning (AOS) reveals the previously invisible, extracting actionable intelligence through dense forest canopies.</p>
                     </div>
                 </div>
-                <div class="right-col">
-                    <div class="square">
+                <div class="right-col" id="rightCol">
+                    <div class="square" data-video="Create_a_short_202511131557 (1)-vmake.mp4" data-title="E-AOS Imaging Module" data-desc="Advanced imaging technology that captures thermal signatures through dense vegetation, providing unparalleled visibility in challenging environments." data-label="E-AOS Imaging Module" onclick="switchVideo(this)">
                         <video autoplay loop muted playsinline>
                             <source src="Create_a_short_202511131557 (1)-vmake.mp4" type="video/mp4">
                         </video>
@@ -1603,7 +1587,7 @@
                             <h6>E-AOS Imaging Module</h6>
                         </div>
                     </div>
-                    <div class="square">
+                    <div class="square" data-video="canopy2.mp4" data-title="Helious VTOL Drone" data-desc="Vertical take-off and landing drone platform designed for tactical surveillance missions in dense terrain and urban environments." data-label="Helious VTOL Drone" onclick="switchVideo(this)">
                         <video autoplay loop muted playsinline>
                             <source src="canopy2.mp4" type="video/mp4">
                         </video>
@@ -1611,7 +1595,7 @@
                             <h6>Helious VTOL Drone</h6>
                         </div>
                     </div>
-                    <div class="square">
+                    <div class="square" data-video="3_eaos_software_202511131554 (1).mp4" data-title="Indigenous Upgrade" data-desc="Fully indigenous AI-powered software suite for real-time threat detection, classification, and tactical decision support systems." data-label="Indigenous Upgrade" onclick="switchVideo(this)">
                         <video autoplay loop muted playsinline>
                             <source src="3_eaos_software_202511131554 (1).mp4" type="video/mp4">
                         </video>
@@ -1658,7 +1642,7 @@
                     </div>
                     <div class="card-content">
                         <div class="card-tag">03</div>
-                        <div class="card-title">Signal vs. Noise Integration</div>
+                        <div class="card-title">Signal vs Noise Integration</div>
                         <div class="card-description">As thousands of images are layered, a static target on the ground appears in the same location, reinforcing its signal. The canopy fades into translucent noise.</div>
                     </div>
                 </div>
@@ -1692,7 +1676,6 @@
                     <div class="member-info">
                         <h3>Ravinder Pal</h3>
                         <div class="member-role">Chief Visionary Officer</div>
-                        
                     </div>
                 </div>
                 <div class="team-member">
@@ -1704,7 +1687,6 @@
                     <div class="member-info">
                         <h3>Prakhar Tripathi</h3>
                         <div class="member-role">Founder</div>
-                        
                     </div>
                 </div>
                 <div class="team-member">
@@ -1716,7 +1698,6 @@
                     <div class="member-info">
                         <h3>Tushar Gothwal</h3>
                         <div class="member-role">Co-founder</div>
-                        
                     </div>
                 </div>
                 <div class="team-member">
@@ -1728,52 +1709,15 @@
                     <div class="member-info">
                         <h3>Kritika Singh</h3>
                         <div class="member-role">Core Member</div>
-                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="mission-container">
-        <div class="mission-header">
-            <h1>Join Our Mission</h1>
-            <p>We welcome partnerships, collaborations, and defense applications. Let's connect and build the future of E-AOS technology together.</p>
-        </div>
-        <style>
-        /* Temporarily hide the entire mission-container section */
-        .mission-container { display: none !important; }
-        </style>
-
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">✉️</div>
-                <h3>Email Us</h3>
-                <p class="card-desc">For partnerships and inquiries.</p>
-                <a href="mailto:prakhar@heliousai.com" class="card-link">prakhar@heliousai.com</a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">☎️</div>
-                <h3>Call Us</h3>
-                <p class="card-desc">Discuss applications.</p>
-                <a href="tel:+91 8800271854" class="card-link">+91 8800271854</a>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">💬</div>
-                <h3>WhatsApp</h3>
-                <p class="card-desc">For quick collaborations.</p>
-                <a href="https://wa.me/918448030880" class="card-link" target="_blank">Message on WhatsApp</a>
-            </div>
-        </div>
-    </div>
-
     <footer class="footer">
         <div class="footer-logo">
-            <div class="logo-text">
-                <img src="logo.png" alt="Company Logo" style="height:100px; vertical-align:middle;">
-            </div>
+            <img src="logo.png" alt="HeliousAI Logo">
             <p class="tagline">Saving lives by eliminating uncertainty.</p>
         </div>
 
@@ -1791,10 +1735,8 @@
             <div class="footer-section">
                 <h4>Contact</h4>
                 <ul>
-                    <li><a href="mailto:prakhar@heliosai.com">prakhar@heliosai.com</a></li>
-                    <!--li><a href="mailto:tushar@heliosai.com">tushar@heliosai.com</a></li-->
-                    <li><a href="tel:+91 8800271854">+91 88002 71854</a></li>
-                    
+                    <li><a href="mailto:prakhar@heliousai.com">prakhar@heliousai.com</a></li>
+                    <li><a href="tel:+918800271854">+91 88002 71854</a></li>
                 </ul>
             </div>
 
@@ -1812,7 +1754,6 @@
         </div>
     </footer>
 
-    <!-- Coming Soon Modal -->
     <div id="comingSoonModal" class="modal">
         <div class="modal-content">
             <h2>Coming Soon!</h2>
@@ -1822,11 +1763,91 @@
     </div>
 
     <script>
+        function switchVideo(clickedElement) {
+            const mainCard = document.getElementById('mainCard');
+            
+            // If main card is clicked, do nothing
+            if (clickedElement === mainCard) {
+                return;
+            }
+            
+            // Store main card data
+            const mainVideo = mainCard.getAttribute('data-video');
+            const mainTitle = mainCard.getAttribute('data-title');
+            const mainDesc = mainCard.getAttribute('data-desc');
+            const mainLabel = mainCard.getAttribute('data-label');
+            
+            // Store clicked element data
+            const clickedVideo = clickedElement.getAttribute('data-video');
+            const clickedTitle = clickedElement.getAttribute('data-title');
+            const clickedDesc = clickedElement.getAttribute('data-desc');
+            const clickedLabel = clickedElement.getAttribute('data-label');
+            
+            // Swap data attributes
+            mainCard.setAttribute('data-video', clickedVideo);
+            mainCard.setAttribute('data-title', clickedTitle);
+            mainCard.setAttribute('data-desc', clickedDesc);
+            mainCard.setAttribute('data-label', clickedLabel);
+            
+            clickedElement.setAttribute('data-video', mainVideo);
+            clickedElement.setAttribute('data-title', mainTitle);
+            clickedElement.setAttribute('data-desc', mainDesc);
+            clickedElement.setAttribute('data-label', mainLabel);
+            
+            // Update main card content with fade effect
+            const mainVideoElement = mainCard.querySelector('video');
+            const mainInfo = mainCard.querySelector('.left-info');
+            
+            mainVideoElement.style.opacity = '0';
+            setTimeout(() => {
+                mainVideoElement.querySelector('source').src = clickedVideo;
+                mainVideoElement.load();
+                mainVideoElement.play();
+                mainVideoElement.style.opacity = '1';
+                
+                mainInfo.innerHTML = `
+                    <h3>${clickedTitle}</h3>
+                    <p>${clickedDesc}</p>
+                `;
+            }, 300);
+            
+            // Update clicked element content
+            const clickedVideoElement = clickedElement.querySelector('video');
+            const clickedOverlay = clickedElement.querySelector('.overlay h6');
+            
+            clickedVideoElement.style.opacity = '0';
+            setTimeout(() => {
+                clickedVideoElement.querySelector('source').src = mainVideo;
+                clickedVideoElement.load();
+                clickedVideoElement.play();
+                clickedVideoElement.style.opacity = '1';
+                
+                clickedOverlay.textContent = mainLabel;
+            }, 300);
+        }
+
+        function toggleMenu() {
+            const navCenter = document.querySelector('.nav-center');
+            const navRight = document.querySelector('.nav-right');
+            const menuToggle = document.querySelector('.menu-toggle');
+            navCenter.classList.toggle('active');
+            navRight.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const navCenter = document.querySelector('.nav-center');
+            const navRight = document.querySelector('.nav-right');
+            const menuToggle = document.querySelector('.menu-toggle');
+            navCenter.classList.remove('active');
+            navRight.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+
         function closeModal() {
             document.getElementById('comingSoonModal').classList.remove('active');
         }
 
-        // Handle Solutions link click
         document.addEventListener('DOMContentLoaded', function() {
             const solutionsLink = document.querySelector('a[href="#solutions"]');
             if (solutionsLink) {
@@ -1836,10 +1857,18 @@
                 });
             }
 
-            // Close modal when clicking outside
             document.getElementById('comingSoonModal').addEventListener('click', function(e) {
                 if (e.target === this) {
                     closeModal();
+                }
+            });
+
+            document.addEventListener('click', function(e) {
+                const nav = document.querySelector('nav');
+                const navCenter = document.querySelector('.nav-center');
+                
+                if (!nav.contains(e.target) && navCenter.classList.contains('active')) {
+                    closeMenu();
                 }
             });
         });
